@@ -116,6 +116,10 @@ font-size: 14px;
   }
   
 
+  main {
+    width: 75%;
+  }
+
   
 
   /* =====cards grid section ===  */
@@ -156,13 +160,7 @@ font-size: 14px;
     overflow: hidden;
 }
 
-.aave-card.saros {
-    grid-column-start: 2;
-}
 
-.aave-card.col_end {
-    grid-column-start: 3;
-}
 
 .logo-container {
     height: 140px;
@@ -373,9 +371,7 @@ font-size: 14px;
     object-fit: cover;
   }
 
-  .card.row_first {
-    grid-row-start: 1;
-  }
+ 
 
   .app-icon {
     width: 120px;
@@ -1263,3 +1259,67 @@ font-size: 14px;
         padding: 15px 10px;
     }
 }
+
+/* === grid layout change ===  */
+/* .aave-card.saros {
+    grid-column-start: 2;
+}
+
+.aave-card.col_end {
+    grid-column-start: 3;
+}
+
+.card.row_first {
+    grid-row-start: 1;
+  } */
+
+
+
+  @media (max-width: 1300px) and (min-width: 1200px) {
+    /* Your styles here */
+    .app-icon {
+        width: 30% !important;
+        margin-right: 10px;
+    }
+    .app-title, .app-category, .app-description, .rating-container{
+        margin-bottom: 0px;
+    }
+    .card{
+        padding: 10px;
+    }
+    .card-content{
+        padding: 10px;
+        padding-bottom: 2px;
+    }
+    .explore-btn{
+        padding: 5px 20px;
+        font-size: 10px;
+    }
+    .app-title {
+        font-size: 16px;
+    }
+    .rating-text, .reviews {
+        font-size: 9px;
+    }
+    .rating-text{
+        margin-right: 2px;
+    }
+    .aave-card .logo-container {
+        height: 178px;
+    }
+
+    .contact-promo-image {
+        height: 100%;
+    }
+    .contact-form-row{
+        margin-bottom: 13px;
+    }
+    .contact-form-section{
+        padding: 30px;
+    }
+
+    .offer_container {
+        padding-inline: 8px;
+    }
+    
+  }
