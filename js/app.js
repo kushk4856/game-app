@@ -84,46 +84,46 @@ document.addEventListener('DOMContentLoaded', () => {
     // Hero card hover animation with GSAP
     const heroCards = document.querySelectorAll('.hero-card');
     
-    heroCards.forEach(card => {
-        card.addEventListener('mouseenter', () => {
-            gsap.to(card, {
-                y: -0,
-                scale: 1.02,
-                boxShadow: '0 15px 30px rgba(0, 0, 0, 0.3)',
-                duration: 0.3,
-                ease: 'power2.out'
-            });
-        });
+    // heroCards.forEach(card => {
+    //     card.addEventListener('mouseenter', () => {
+    //         gsap.to(card, {
+    //             y: -0,
+    //             scale: 1.02,
+    //             boxShadow: '0 15px 30px rgba(0, 0, 0, 0.3)',
+    //             duration: 0.3,
+    //             ease: 'power2.out'
+    //         });
+    //     });
         
-        card.addEventListener('mouseleave', () => {
-            gsap.to(card, {
-                y: 0,
-                scale: 1,
-                boxShadow: '0 10px 20px rgba(0, 0, 0, 0.2)',
-                duration: 0.3,
-                ease: 'power2.out'
-            });
-        });
-    });
+    //     card.addEventListener('mouseleave', () => {
+    //         gsap.to(card, {
+    //             y: 0,
+    //             scale: 1,
+    //             boxShadow: '0 10px 20px rgba(0, 0, 0, 0.2)',
+    //             duration: 0.3,
+    //             ease: 'power2.out'
+    //         });
+    //     });
+    // });
 
     // Stagger animation for app cards on page load
     const appCards = document.querySelectorAll('.bg-white.dark\\:bg-dark-card');
     
-    gsap.from(appCards, {
-        y: 30,
-        opacity: 0,
-        duration: 0.6,
-        stagger: 0.1,
-        ease: 'power2.out',
-        delay: 0.2
-    });
+    // gsap.from(appCards, {
+    //     y: 30,
+    //     opacity: 0,
+    //     duration: 0.6,
+    //     stagger: 0.1,
+    //     ease: 'power2.out',
+    //     delay: 0.2
+    // });
     
     // Preload images for smooth transitions
-    const imageUrls = document.querySelectorAll('img');
-    imageUrls.forEach(img => {
-        const tempImg = new Image();
-        tempImg.src = img.src;
-    });
+    // const imageUrls = document.querySelectorAll('img');
+    // imageUrls.forEach(img => {
+    //     const tempImg = new Image();
+    //     tempImg.src = img.src;
+    // });
 });
 
 // ===navbar === 
@@ -388,3 +388,12 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+
+// ============== redirection delay == 
+function delayedRedirect(event, url) {
+    event.preventDefault(); // Prevent default navigation
+    setTimeout(() => {
+      window.location.href = url; // Redirect after 2 seconds
+    }, 500);
+  }

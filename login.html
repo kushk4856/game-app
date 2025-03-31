@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game App Store</title>
+   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script  src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script defer>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        'dark-bg': '#121212',
+                        'dark-card': '#1E1E1E',
+                        'primary-blue': '#00A3FF',
+                        'dark-navy': '#0F172A',
+                        'hot-red': '#FF3A5E'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <link rel="stylesheet" href="css/style.css">
+    
+</head>
+<body class="bg-white dark:bg-gray-800 text-black dark:text-white font-sans">
+    <div id="app" class=" mx-auto max-w-[1650px]">
+        <!-- Top Banner -->
+        <!-- <div class="w-full bg-gray-800 text-white px-[23px] py-[13px] text-center text-sm flex items-center justify-between">
+       
+            <div class="justify-start top_bar_text"><span class="text-white   font-medium font-['Montserrat']">Play </span><span class="text-red-600   font-bold font-['Montserrat']">God of War</span><span class="text-white   font-medium font-['Montserrat']"> and earn exculisive prizes - </span><span class="text-cyan-300  font-bold font-['Montserrat']">Play Now</span></div>
+            <div class="h-7 w-32 hidden md:block">
+                <img src="./assets/images/god-of-war-logo.png" alt="God of War" class="h-full w-full object-contain">
+            </div>
+        </div> -->
+                  <!-- Navigation -->
+                  <nav class="sticky top-0 px-6 w-full bg-white/80 dark:bg-gray-800 backdrop-blur-md z-50 shadow-sm">
+                    <div class=" flex justify-between items-center px-0  py-5">
+                        <div class="left_nav">
+                            <div class="logo_login">
+                                <p>App Store</p>
+                            </div>
+                            <!-- ==inner nav ==  -->
+                            <div class="flex items-center space-x-4">
+                                <button id="mobile-menu-button" class="md:hidden text-2xl">
+                                    <i class="fas fa-bars"></i>
+                                </button>
+                                <nav class="navbar">
+                                    <div class="background"></div>
+                                    <div class="navbar-links">
+                                      <a class="nav-item active" href="index.html" onclick="delayedRedirect(event, 'index.html')" data-index="0">Games</a>
+                                      <a class="nav-item" data-index="1">Apps</a>
+                                      <a class="nav-item" data-index="2">P2E</a>
+                                      <a class="nav-item" data-index="3">Contact</a>
+                                    </div>
+                                  </nav>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <button id="theme-toggle" class="text-2xl text-gray-600 dark:text-gray-300 p-2 rounded-full hover:bg-gray-200 dark:hover:bg-dark-card transition-all">
+                                <i class="fas fa-moon dark:hidden"></i>
+                                <i class="fas fa-sun hidden dark:block"></i>
+                            </button>
+                            <div class="hidden md:flex space-x-6">
+                                <button class="  px-[24px] py-2  hover:bg-cyan-600 hover:text-white transition-all dark:text-white text-lg font-medium font-['Montserrat'] rounded-[5px] border-2 border-cyan-300">Sign In</button>
+                                <button class=" text-slate-950 text-lg font-medium font-['Montserrat']  px-[24px] py-2 bg-cyan-300 rounded-[5px] hover:bg-cyan-600 hover:text-white transition-all">Sign Up</button>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+        
+       
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="fixed left-[-100%] top-[71px] w-64 h-screen bg-white dark:bg-gray-900 p-4 transition-all duration-300 z-[99] md:hidden shadow-xl">
+         
+            <div class="relative mb-4">
+                <input type="text" placeholder="Search..." class="w-full bg-gray-100 dark:bg-dark-bg rounded-lg pl-10 pr-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary-blue">
+                <i class="fas fa-search absolute left-3 top-3 text-gray-400"></i>
+            </div>
+            <div class="space-y-1">
+                <div class="sidebar-link text-lg active">
+                  <img src="./assets/icons/home.svg" class="fas fa-home mr-3 h-5 w-5" alt=""> Home
+                </div>
+                <div class="sidebar-link text-lg">
+                  <img src="./assets/icons/categories.svg" class="fas fa-home mr-3 h-5 w-5" alt=""> Categories
+                </div>
+                <div class="sidebar-link text-lg">
+                  <img src="./assets/icons/message.svg" class="fas fa-home mr-3 h-5 w-5" alt=""> Message
+                </div>
+                <div class="sidebar-link text-lg">
+                  <img src="./assets/icons/recent.svg" class="fas fa-home mr-3 h-5 w-5" alt=""> Recently Played
+                </div>
+                <div class="sidebar-link text-lg">
+                  <img src="./assets/icons/admin.svg" class="fas fa-home mr-3 h-5 w-5" alt=""> Account
+                </div>
+            </div>
+        </div>
+
+        <div class="flex flex-col md:flex-row dark:bg-gray-900">
+
+            
+           
+
+            <!-- Main Content -->
+            <main  class="flex w-full md:w-[90%] justify-center items-center h-full px-4 py-12 dark:bg-gray-900 max-w-[1500px] mx-auto ">
+
+                <div class="login-container">
+                    <div class="login-section">
+                        <div class="login-app-title">APP STORE</div>
+                        <div class="login-form">
+                            <h2 class="login-heading">Login</h2>
+                            <div class="login-form-group">
+                                <label for="email" class="login-label">Email</label>
+                                <input type="email" id="email" class="login-input" placeholder="Enter your email">
+                            </div>
+                            <div class="login-form-group">
+                                <label for="password" class="login-label">Password</label>
+                                <input type="password" id="password" class="login-input" placeholder="Enter your password">
+                            </div>
+                            <button class="login-btn-sign-in">Sign In</button>
+                            <div class="login-forgot-password">Forgot Password</div>
+                            <div class="login-sign-up-text">Don't have an account. <span class="login-sign-up-link">Sign Up</span></div>
+                        </div>
+                    </div>
+                    <div class="login-game-ad" id="login-game-ad">
+                        <img src="/assets/images/login_image.jpg" alt="Estfor Kingdom Logo" class="login-game-logo" id="login-game-logo">
+                        <!-- <div class="login-play-btn">PLAY FREE & EARN</div> -->
+                    </div>
+                </div>
+
+
+            </main>
+        </div>
+        <footer class="footer">
+            <div class="social-banner">
+                <div class="social-text">Get Connected with us on Social Media</div>
+                <div class="social-icons">
+                    <div class="social-icon">
+                        <i>in</i>
+                    </div>
+                    <div class="social-icon">
+                        <i>f</i>
+                    </div>
+                    <div class="social-icon">
+                        <i>t</i>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="footer-content">
+                <div class="footer-column company_info">
+                    <h3 class="footer-heading">Company Name</h3>
+                    <p class="company-info">
+                        Dextr Apps is a Web3 app store featuring web-based dApps and games where users can explore, play, and engage with blockchain-powered applications directly from your browser.
+                    </p>
+                </div>
+    
+                <div class="footer-column other_info">
+                    <h3 class="footer-heading">Pages</h3>
+                    <ul class="footer-links">
+                        <li class="footer-link">Games</li>
+                        <li class="footer-link">Apps</li>
+                        <li class="footer-link">Play 2 Earn</li>
+                        <li class="footer-link">Contact</li>
+                    </ul>
+                </div>
+    
+                <div class="footer-column other_info">
+                    <h3 class="footer-heading">Pages</h3>
+                    <ul class="footer-links">
+                        <li class="footer-link">Games</li>
+                        <li class="footer-link">Apps</li>
+                        <li class="footer-link">Play 2 Earn</li>
+                        <li class="footer-link">Contact</li>
+                    </ul>
+                </div>
+    
+                <div class="footer-column other_info">
+                    <h3 class="footer-heading">Pages</h3>
+                    <ul class="footer-links">
+                        <li class="footer-link">Games</li>
+                        <li class="footer-link">Apps</li>
+                        <li class="footer-link">Play 2 Earn</li>
+                        <li class="footer-link">Contact</li>
+                    </ul>
+                </div>
+            </div>
+    
+            <div class="copyright-bar">
+                All Rights Reserved 2025-26 © Copyright - Dextr Apps | 
+                <a href="#" class="copyright-link">Privacy</a> | 
+                <a href="#" class="copyright-link">Disclaimer</a> | 
+                <a href="#" class="copyright-link">Terms & Conditions</a>
+            </div>
+        </footer>
+    </div>
+
+    <script defer src="js/app.js"></script>
+</body>
+</html>

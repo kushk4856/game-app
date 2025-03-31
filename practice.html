@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App Store Login</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: #1a1e24;
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .login-container {
+            display: flex;
+            width: 100%;
+            max-width: 900px;
+            height: 500px;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .login-section {
+            background-color: #282e38;
+            width: 50%;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .login-app-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 40px;
+            color: white;
+        }
+
+        .login-form {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .login-heading {
+            color: #68bbe3;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .login-form-group {
+            margin-bottom: 20px;
+        }
+
+        .login-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        .login-input {
+            width: 100%;
+            padding: 12px;
+            border-radius: 4px;
+            border: none;
+            background-color: #3e4654;
+            color: white;
+            font-size: 14px;
+        }
+
+        .login-input::placeholder {
+            color: #8f96a3;
+        }
+
+        .login-btn-sign-in {
+            background-color: #68bbe3;
+            color: black;
+            border: none;
+            padding: 12px;
+            border-radius: 4px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 10px;
+        }
+
+        .login-btn-sign-in:hover {
+            background-color: #5ea8cc;
+        }
+
+        .login-forgot-password {
+            margin-top: 15px;
+            color: #68bbe3;
+            text-decoration: none;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .login-sign-up-text {
+            margin-top: 12px;
+            font-size: 14px;
+        }
+
+        .login-sign-up-link {
+            color: #68bbe3;
+            text-decoration: none;
+            margin-left: 5px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .login-game-ad {
+            width: 50%;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 20px;
+        }
+
+        .login-game-logo {
+            width: 100%;
+            height: auto;
+            margin-top: 40px;
+        }
+
+        .login-play-btn {
+            background-color: #fbb034;
+            color: #000;
+            padding: 15px 25px;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 18px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            align-self: center;
+            margin-bottom: 40px;
+            width: 240px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .login-play-btn::after {
+            content: "→";
+            margin-left: 10px;
+            font-size: 22px;
+        }
+
+        /* Go to Top Button Styles */
+        .login-go-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: #68bbe3;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .login-go-top.login-visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .login-go-top:hover {
+            background-color: #5ea8cc;
+            transform: translateY(-3px);
+        }
+
+        .login-go-top-arrow {
+            width: 12px;
+            height: 12px;
+            border-left: 3px solid white;
+            border-top: 3px solid white;
+            transform: rotate(45deg);
+            margin-top: 6px;
+        }
+
+        @media (max-width: 768px) {
+            .login-container {
+                flex-direction: column;
+                height: auto;
+                max-width: 100%;
+                border-radius: 0;
+            }
+
+            .login-section {
+                width: 100%;
+                padding: 30px 20px;
+                order: 2;
+            }
+
+            .login-game-ad {
+                width: 100%;
+                min-height: 300px;
+                order: 1;
+            }
+
+            .login-play-btn {
+                margin-bottom: 20px;
+            }
+
+            .login-go-top {
+                bottom: 20px;
+                right: 20px;
+                width: 40px;
+                height: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-section">
+            <div class="login-app-title">APP STORE</div>
+            <div class="login-form">
+                <h2 class="login-heading">Login</h2>
+                <div class="login-form-group">
+                    <label for="email" class="login-label">Email</label>
+                    <input type="email" id="email" class="login-input" placeholder="Enter your email">
+                </div>
+                <div class="login-form-group">
+                    <label for="password" class="login-label">Password</label>
+                    <input type="password" id="password" class="login-input" placeholder="Enter your password">
+                </div>
+                <button class="login-btn-sign-in">Sign In</button>
+                <div class="login-forgot-password">Forgot Password</div>
+                <div class="login-sign-up-text">Don't have an account. <span class="login-sign-up-link">Sign Up</span></div>
+            </div>
+        </div>
+        <div class="login-game-ad" id="login-game-ad">
+            <img src="/api/placeholder/400/150" alt="Estfor Kingdom Logo" class="login-game-logo" id="login-game-logo">
+            <div class="login-play-btn">PLAY FREE & EARN</div>
+        </div>
+    </div>
+
+    <!-- Go to Top Button -->
+    <div class="login-go-top" id="login-go-top">
+        <div class="login-go-top-arrow"></div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set background image for game ad section
+            const gameAd = document.getElementById('login-game-ad');
+            gameAd.style.backgroundImage = 'url("/api/placeholder/450/500")';
+            
+            // Validate form on submission
+            const form = document.querySelector('.login-btn-sign-in');
+            form.addEventListener('click', function(e) {
+                e.preventDefault();
+                const email = document.getElementById('email').value;
+                const password = document.getElementById('password').value;
+                
+                if (!email) {
+                    alert('Please enter your email');
+                    return;
+                }
+                
+                if (!password) {
+                    alert('Please enter your password');
+                    return;
+                }
+                
+                // Here you would typically send the form data to a server
+                console.log('Login attempt:', { email, password });
+            });
+            
+            // Forgot password functionality
+            const forgotPassword = document.querySelector('.login-forgot-password');
+            forgotPassword.addEventListener('click', function() {
+                alert('Password reset functionality would go here');
+            });
+            
+            // Sign up link
+            const signUpLink = document.querySelector('.login-sign-up-link');
+            signUpLink.addEventListener('click', function() {
+                alert('Sign up page would load here');
+            });
+            
+            // Responsive handling
+            function handleResponsive() {
+                if (window.innerWidth <= 768) {
+                    gameAd.style.minHeight = '300px';
+                } else {
+                    gameAd.style.minHeight = 'auto';
+                }
+            }
+            
+            window.addEventListener('resize', handleResponsive);
+            handleResponsive();
+            
+            // Go to Top Button Functionality
+            const goTopButton = document.getElementById('login-go-top');
+            
+            // Show button when user scrolls down 300px
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    goTopButton.classList.add('login-visible');
+                } else {
+                    goTopButton.classList.remove('login-visible');
+                }
+            });
+            
+            // Scroll to top when button is clicked
+            goTopButton.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+            
+            // For demo purposes - create a tall page to enable scrolling
+            function createScrollableContent() {
+                for (let i = 0; i < 5; i++) {
+                    const spacer = document.createElement('div');
+                    spacer.style.height = '600px';
+                    spacer.style.marginTop = '20px';
+                    spacer.style.background = '#2a3040';
+                    spacer.style.borderRadius = '8px';
+                    spacer.style.display = 'flex';
+                    spacer.style.justifyContent = 'center';
+                    spacer.style.alignItems = 'center';
+                    spacer.style.color = 'white';
+                    spacer.style.fontSize = '24px';
+                    spacer.textContent = `Content Section ${i + 1}`;
+                    document.body.appendChild(spacer);
+                }
+            }
+            
+            // Create content to demonstrate scrolling functionality
+            createScrollableContent();
+        });
+    </script>
+</body>
+</html>
