@@ -33,8 +33,8 @@
         <!-- Top Banner -->
         <div class="w-full bg-gray-800 text-white px-[23px] py-[13px] text-center text-sm flex items-center justify-between">
             <!-- <div></div> -->
-            <div class="justify-start"><span class="text-white text-lg font-medium font-['Montserrat']">Play </span><span class="text-red-600 text-lg font-bold font-['Montserrat']">God of War</span><span class="text-white text-lg font-medium font-['Montserrat']"> and earn exculisive prizes - </span><span class="text-cyan-300 text-lg font-bold font-['Montserrat']">Play Now</span></div>
-            <div class="h-7 w-32">
+            <div class="justify-start top_bar_text"><span class="text-white   font-medium font-['Montserrat']">Play </span><span class="text-red-600   font-bold font-['Montserrat']">God of War</span><span class="text-white   font-medium font-['Montserrat']"> and earn exculisive prizes - </span><span class="text-cyan-300  font-bold font-['Montserrat']">Play Now</span></div>
+            <div class="h-7 w-32 hidden md:block">
                 <img src="./assets/images/god-of-war-logo.png" alt="God of War" class="h-full w-full object-contain">
             </div>
         </div>
@@ -42,26 +42,26 @@
        
 
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="fixed left-[-100%] top-[86px] w-64 h-screen bg-white dark:bg-dark-card p-4 transition-all duration-300 z-40 md:hidden shadow-xl">
+        <div id="mobile-menu" class="fixed left-[-100%] top-[71px] w-64 h-screen bg-white dark:bg-gray-900 p-4 transition-all duration-300 z-40 md:hidden shadow-xl">
             <div class="relative mb-4">
                 <input type="text" placeholder="Search..." class="w-full bg-gray-100 dark:bg-dark-bg rounded-lg pl-10 pr-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary-blue">
                 <i class="fas fa-search absolute left-3 top-3 text-gray-400"></i>
             </div>
             <div class="space-y-1">
-                <div class="sidebar-link active">
-                    <i class="fas fa-home mr-3 w-5 text-center"></i> Home
+                <div class="sidebar-link text-lg active">
+                  <img src="./assets/icons/home.svg" class="fas fa-home mr-3 h-5 w-5" alt=""> Home
                 </div>
-                <div class="sidebar-link">
-                    <i class="fas fa-th-large mr-3 w-5 text-center"></i> Categories
+                <div class="sidebar-link text-lg">
+                  <img src="./assets/icons/categories.svg" class="fas fa-home mr-3 h-5 w-5" alt=""> Categories
                 </div>
-                <div class="sidebar-link">
-                    <i class="fas fa-comment mr-3 w-5 text-center"></i> Message
+                <div class="sidebar-link text-lg">
+                  <img src="./assets/icons/message.svg" class="fas fa-home mr-3 h-5 w-5" alt=""> Message
                 </div>
-                <div class="sidebar-link">
-                    <i class="fas fa-history mr-3 w-5 text-center"></i> Recently Played
+                <div class="sidebar-link text-lg">
+                  <img src="./assets/icons/recent.svg" class="fas fa-home mr-3 h-5 w-5" alt=""> Recently Played
                 </div>
-                <div class="sidebar-link">
-                    <i class="fas fa-user mr-3 w-5 text-center"></i> Account
+                <div class="sidebar-link text-lg">
+                  <img src="./assets/icons/admin.svg" class="fas fa-home mr-3 h-5 w-5" alt=""> Account
                 </div>
             </div>
         </div>
@@ -97,11 +97,11 @@
             </aside>
 
             <!-- Main Content -->
-            <main class="flex-1 pb-6 dark:bg-gray-900 max-w-[1500px] mx-auto ">
+            <main class="flex-1 px-4 pb-6 dark:bg-gray-900 max-w-[1500px] mx-auto ">
 
                  <!-- Navigation -->
         <nav class="sticky top-0 w-full bg-white/80 dark:bg-gray-900 backdrop-blur-md z-50 shadow-sm">
-            <div class=" flex justify-between items-center p-4 py-5">
+            <div class=" flex justify-between items-center px-0  py-5">
                 <div class="flex items-center space-x-4">
                     <button id="mobile-menu-button" class="md:hidden text-2xl">
                         <i class="fas fa-bars"></i>
@@ -129,7 +129,7 @@
             </div>
         </nav>
                 <!-- Hero Section -->
-                <section class="grid grid-cols-1 md:grid-cols-3 lg:pt-4 gap-4 mb-8 px-6">
+                <section class="grid grid-cols-1 md:grid-cols-3 lg:pt-4 gap-4 mb-8 ">
                   <div class="hero-card overflow-hidden rounded-[30px] aspect-[4/3] md:aspect-video">
                     <img src="./assets/images/game-img-2.png" alt="Red Dead Redemption" 
                          class="w-full h-full object-cover">
@@ -145,7 +145,7 @@
                 </section>
 
                 <!-- Offer Categories -->
-                <section class="mb-6 flex justify-between overflow-x-auto py-4 space-x-4 px-6 offer_container">
+                <section class="mb-6 flex justify-between overflow-x-auto py-4 space-x-4  offer_container">
                     <div class="flex items-center space-x-2 dark:bg-gray-800 bg-gray-900 rounded-[5px]    px-4 min-w-[180px] py-2  whitespace-nowrap">
                        <img class="w-[27px] h-[27px]" src="./assets/icons/star.png" alt="">
                         <div class="flex flex-col ">
@@ -191,7 +191,7 @@
                 </section>
 
                 <!-- Hot Offers Section -->
-                <section class="mb-8 px-6">
+                <section class="mb-8 ">
                     <div class="flex justify-between items-center mb-4">
                         <h2 class="text-2xl font-bold">Hot Offers</h2>
                         <a href="#" class="text-cyan-300 text-base font-bold font-['Montserrat']">See All >></a>
@@ -473,7 +473,7 @@
                 </section>
 
                 <!-- top seller -->
-                <section class="mb-8 px-6">
+                <section class="mb-8 ">
                     <div class="flex justify-between items-center mb-4">
                         <h2 class="text-2xl font-bold">Top Sellers</h2>
                         <a href="#" class="text-cyan-300 text-base font-bold font-['Montserrat']">See All >></a>
@@ -757,7 +757,7 @@
 
                 <!-- hot picks  -->
 
-                <section class="mb-8 px-6">
+                <section class="mb-8 ">
                     <div class="flex justify-between items-center mb-4">
                         <h2 class="text-2xl font-bold">Hot Picks</h2>
                         <a href="#" class="text-cyan-300 text-base font-bold font-['Montserrat']">See All >></a>
@@ -1039,7 +1039,7 @@
                 </section>
 
                 <!-- top games  -->
-                <section class="mb-8 px-6">
+                <section class="mb-8 ">
                     <h2 class="text-2xl mb-5 font-bold">Top Games</h2>
                     <div class="grid grid-cols-1 md:grid-cols-3 lg:pt-4 gap-4 ">
                         <div class="hero-card overflow-hidden h-48 rounded-[30px] md:h-64">
@@ -1067,7 +1067,7 @@
                 </section> 
 
                 <!-- top utility aap  -->
-                <section class="mb-8 px-6">
+                <section class="mb-8 ">
                     <div class="flex justify-between items-center mb-4">
                         <h2 class="text-2xl font-bold">Top Utilities Apps</h2>
                         <a href="#" class="text-cyan-300 text-base font-bold font-['Montserrat']">See All >></a>
@@ -1350,7 +1350,7 @@
                 
                 
                 <!-- ---Talk of the Town ---  -->
-                <section class="mb-8 px-6">
+                <section class="mb-8 ">
                     <div class="flex justify-between items-center mb-4">
                         <h2 class="text-2xl font-bold">Hot Offers</h2>
                         <a href="#" class="text-cyan-300 text-base font-bold font-['Montserrat']">See All >></a>
@@ -1633,7 +1633,7 @@
 
 
                 <!-- Top Games 2  -->
-                <section class="mb-8 px-6">
+                <section class="mb-8 ">
                     <div class="flex justify-between items-center mb-4">
                         <h2 class="text-2xl font-bold">Hot Picks</h2>
                         <a href="#" class="text-cyan-300 text-base font-bold font-['Montserrat']">See All >></a>
@@ -1917,7 +1917,7 @@
 
 
                 <!-- start your search  -->
-                <div class="px-6 mb-8 search_form">
+                <div class=" mb-8 search_form">
                     <h2 class="text-2xl mb-5 font-bold">Start Your Search</h2>
                     <form id="searchForm" class="search-form">
                         <!-- <h1>App & Game Search</h1> -->
@@ -1981,7 +1981,7 @@
 
                 <!-- ----categories ---  -->
                  
-                <div class=" mb-8 px-6 ">
+                <div class=" mb-8  ">
                     <h2 class="text-2xl mb-5 font-bold">Start Your Search</h2>
                     <section class="mb-6 flex justify-between overflow-x-auto pt-2  space-x-4  offer_container">
                     
@@ -2076,7 +2076,7 @@
                 </div>
 
                 <!-- newly launched app  -->
-                <section class="mb-8 px-6">
+                <section class="mb-8 ">
                     <div class="flex justify-between items-center mb-4">
                         <h2 class="text-2xl font-bold">Hot Picks</h2>
                         <a href="#" class="text-cyan-300 text-base font-bold font-['Montserrat']">See All &gt;&gt;</a>
@@ -2359,7 +2359,7 @@
 
 
                 <!-- ----- upcoming apps ----  -->
-                <section class="mb-8 px-6">
+                <section class="mb-8 ">
                     <div class="flex justify-between items-center mb-4">
                         <h2 class="text-2xl font-bold">Hot Offers</h2>
                         <a href="#" class="text-cyan-300 text-base font-bold font-['Montserrat']">See All &gt;&gt;</a>
@@ -2641,7 +2641,7 @@
                 </section>
 
                 <!-- partners logos  -->
-                <section class="partners_cards mb-8 px-6">
+                <section class="partners_cards mb-8 ">
                     <h2 class="text-2xl mb-5 font-bold">Our Investors</h2>
                     <div class="logo-showcase">
                         <div class="logo-item">
@@ -2667,7 +2667,7 @@
                 </section>
 
                 <!-- faq's partern  -->
-                <div class="faq-container mb-8 px-6">
+                <div class="faq-container mb-8 ">
                     <h2 class="text-2xl mb-5 font-bold">Frequently Asked Questions</h2>
                     <div class="faq-item active">
                         <div class="faq-question">
@@ -2747,7 +2747,7 @@
 
 
                 <!-- publication parterns  -->
-                <section class="partners_cards mb-8 px-6">
+                <section class="partners_cards mb-8 ">
                     <h2 class="text-2xl mb-5 font-bold">Publication Partner</h2>
                     <div class="logo-showcase">
                         <div class="logo-item">
@@ -2794,7 +2794,7 @@
                 </section>
                 
                 <!-- ==== news section =  -->
-                <section class="px-6 mb-8">
+                <section class=" mb-8">
                     <h2 class="text-2xl mb-5 font-bold">Our Investors</h2>
                     <div class="news-container ">
                     
@@ -2835,7 +2835,7 @@
                 </section>
 
                 <!-- award recogination  -->
-                <section class="partners_cards mb-8 px-6">
+                <section class="partners_cards mb-8 ">
                     <h2 class="text-2xl mb-5 font-bold">Awards & Recogination
                     </h2>
                     <div class="logo-showcase">
@@ -2884,7 +2884,7 @@
 
 
                 <!-- contact form section  -->
-                <section class="mb-8 px-6">
+                <section class="mb-8 ">
                     <div class="contact-container">
                         <div class="contact-form-section">
                             <div class="contact-form-row">
