@@ -82,29 +82,29 @@ document.addEventListener('DOMContentLoaded', () => {
     // });
 
     // Hero card hover animation with GSAP
-    // const heroCards = document.querySelectorAll('.hero-card');
+    const heroCards = document.querySelectorAll('.hero-card');
     
-    // heroCards.forEach(card => {
-    //     card.addEventListener('mouseenter', () => {
-    //         gsap.to(card, {
-    //             y: -0,
-    //             scale: 1.02,
-    //             boxShadow: '0 15px 30px rgba(0, 0, 0, 0.3)',
-    //             duration: 0.3,
-    //             ease: 'power2.out'
-    //         });
-    //     });
+    heroCards.forEach(card => {
+        card.addEventListener('mouseenter', () => {
+            gsap.to(card, {
+                y: -0,
+                scale: 1.02,
+                boxShadow: '0 15px 30px rgba(0, 0, 0, 0.3)',
+                duration: 0.3,
+                ease: 'power2.out'
+            });
+        });
         
-    //     card.addEventListener('mouseleave', () => {
-    //         gsap.to(card, {
-    //             y: 0,
-    //             scale: 1,
-    //             boxShadow: '0 10px 20px rgba(0, 0, 0, 0.2)',
-    //             duration: 0.3,
-    //             ease: 'power2.out'
-    //         });
-    //     });
-    // });
+        card.addEventListener('mouseleave', () => {
+            gsap.to(card, {
+                y: 0,
+                scale: 1,
+                boxShadow: '0 10px 20px rgba(0, 0, 0, 0.2)',
+                duration: 0.3,
+                ease: 'power2.out'
+            });
+        });
+    });
 
     // Stagger animation for app cards on page load
     const appCards = document.querySelectorAll('.bg-white.dark\\:bg-dark-card');
