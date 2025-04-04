@@ -40,21 +40,22 @@
         </div> -->
                   <!-- Navigation -->
                   <nav class="sticky top-0 px-6 w-full bg-white/80 dark:bg-gray-800 backdrop-blur-md z-50 shadow-sm">
-                    <div class=" flex justify-between items-center px-0  py-5">
+                    <div class=" flex relative justify-between items-center px-0  py-5">
                         <div class="left_nav">
                             <div class="logo_login">
                                 <p>App Store</p>
-                            </div>
-                            <!-- ==inner nav ==  -->
-                            <div class="flex items-center space-x-4">
-                                <button id="mobile-menu-button" class="md:hidden text-2xl">
+                                <button id="mobile-menu-button" class="md:hidden text-right text-2xl">
                                     <i class="fas fa-bars"></i>
                                 </button>
+                            </div>
+                            <!-- ==inner nav ==  -->
+                            <div class="flex w-full md:w-auto flex-col md:flex-row items-center space-x-4">
+                               
                                 <nav class="navbar">
                                     <div class="background"></div>
                                     <div class="navbar-links">
                                       <a class="nav-item active" href="index.html" onclick="delayedRedirect(event, 'index.html')" data-index="0">Games</a>
-                                      <a class="nav-item" data-index="1">Apps</a>
+                                      <a class="nav-item" onclick="delayedRedirect(event, 'app.html')" data-index="1">Apps</a>
                                       <a class="nav-item" data-index="2">P2E</a>
                                       <a class="nav-item" data-index="3">Contact</a>
                                     </div>

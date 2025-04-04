@@ -1,360 +1,294 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>App Store Login</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
-        }
-
-        body {
-            background-color: #1a1e24;
-            color: white;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .login-container {
-            display: flex;
-            width: 100%;
-            max-width: 900px;
-            height: 500px;
-            overflow: hidden;
-            border-radius: 8px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-        }
-
-        .login-section {
-            background-color: #282e38;
-            width: 50%;
-            padding: 40px;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .login-app-title {
-            font-size: 24px;
-            font-weight: bold;
-            margin-bottom: 40px;
-            color: white;
-        }
-
-        .login-form {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .login-heading {
-            color: #68bbe3;
-            font-size: 28px;
-            margin-bottom: 20px;
-        }
-
-        .login-form-group {
-            margin-bottom: 20px;
-        }
-
-        .login-label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: bold;
-        }
-
-        .login-input {
-            width: 100%;
-            padding: 12px;
-            border-radius: 4px;
-            border: none;
-            background-color: #3e4654;
-            color: white;
-            font-size: 14px;
-        }
-
-        .login-input::placeholder {
-            color: #8f96a3;
-        }
-
-        .login-btn-sign-in {
-            background-color: #68bbe3;
-            color: black;
-            border: none;
-            padding: 12px;
-            border-radius: 4px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            margin-top: 10px;
-        }
-
-        .login-btn-sign-in:hover {
-            background-color: #5ea8cc;
-        }
-
-        .login-forgot-password {
-            margin-top: 15px;
-            color: #68bbe3;
-            text-decoration: none;
-            font-size: 14px;
-            cursor: pointer;
-        }
-
-        .login-sign-up-text {
-            margin-top: 12px;
-            font-size: 14px;
-        }
-
-        .login-sign-up-link {
-            color: #68bbe3;
-            text-decoration: none;
-            margin-left: 5px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        .login-game-ad {
-            width: 50%;
-            background-size: cover;
-            background-position: center;
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            padding: 20px;
-        }
-
-        .login-game-logo {
-            width: 100%;
-            height: auto;
-            margin-top: 40px;
-        }
-
-        .login-play-btn {
-            background-color: #fbb034;
-            color: #000;
-            padding: 15px 25px;
-            border-radius: 30px;
-            font-weight: bold;
-            font-size: 18px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            align-self: center;
-            margin-bottom: 40px;
-            width: 240px;
-            text-align: center;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-        }
-
-        .login-play-btn::after {
-            content: "→";
-            margin-left: 10px;
-            font-size: 22px;
-        }
-
-        /* Go to Top Button Styles */
-        .login-go-top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 50px;
-            height: 50px;
-            background-color: #68bbe3;
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-            z-index: 1000;
-        }
-
-        .login-go-top.login-visible {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .login-go-top:hover {
-            background-color: #5ea8cc;
-            transform: translateY(-3px);
-        }
-
-        .login-go-top-arrow {
-            width: 12px;
-            height: 12px;
-            border-left: 3px solid white;
-            border-top: 3px solid white;
-            transform: rotate(45deg);
-            margin-top: 6px;
-        }
-
-        @media (max-width: 768px) {
-            .login-container {
-                flex-direction: column;
-                height: auto;
-                max-width: 100%;
-                border-radius: 0;
-            }
-
-            .login-section {
-                width: 100%;
-                padding: 30px 20px;
-                order: 2;
-            }
-
-            .login-game-ad {
-                width: 100%;
-                min-height: 300px;
-                order: 1;
-            }
-
-            .login-play-btn {
-                margin-bottom: 20px;
-            }
-
-            .login-go-top {
-                bottom: 20px;
-                right: 20px;
-                width: 40px;
-                height: 40px;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Tabs UI</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+    
+    body {
+      background-color: #1a2432;
+      color: white;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+    }
+    
+    .tab_switch_section {
+      max-width: 880px;
+      width: 100%;
+      margin-top: 20px;
+      background-color: #222C34;
+      padding: 15px;
+      border-radius: 4px;
+    }
+    
+    .tab_bar-container {
+      position: relative;
+      margin-bottom: 0px;
+      border-radius: 8px;
+      background-color: #33424E;
+      padding: 4px;
+      overflow: hidden;
+      width: 100%;
+    }
+    
+    .tab_bar-scroll-container {
+      width: 100%;
+      overflow-x: auto;
+      scrollbar-width: none; /* Firefox */
+      -ms-overflow-style: none; /* IE and Edge */
+    }
+    
+    .tab_bar-scroll-container::-webkit-scrollbar {
+      display: none; /* Chrome, Safari, Opera */
+    }
+    
+    .tab_bar-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+      height: 50px;
+      width: 100%;
+      min-width: max-content; /* Ensures tabs don't shrink too small */
+    }
+    
+    .tab_bar-background {
+      position: absolute;
+      height: calc(100% - 8px);
+      background-color: #485056;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+      z-index: 1;
+    }
+    
+    .tab_bar-navigation {
+      position: relative;
+      display: flex;
+      width: 100%;
+      height: 100%;
+      z-index: 2;
+    }
+    
+    .tab_bar-item {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 0 20px;
+      min-width: 120px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      border-radius: 6px;
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    
+    .tab_bar-item.active {
+      color: white;
+    }
+    
+    .content-section {
+      padding: 20px 10px;
+      background-color: transparent;
+      border-radius: 12px;
+      width: 100%;
+    }
+    
+    .content-section h1 {
+      font-size: 24px;
+      font-weight: 700;
+    }
+    
+    .content-section p {
+      margin-top: 10px;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+    
+    /* Tablet Breakpoint */
+    @media (max-width: 768px) {
+      .tab_bar-item {
+        min-width: 100px;
+        padding: 0 15px;
+        font-size: 14px;
+      }
+      
+      .tab_bar-wrapper {
+        height: 45px;
+      }
+      
+      .content-section h1 {
+        font-size: 22px;
+      }
+    }
+    
+    /* Mobile Landscape Breakpoint */
+    @media (max-width: 576px) {
+      .tab_bar-item {
+        min-width: 90px;
+        padding: 0 12px;
+        font-size: 13px;
+      }
+      
+      .tab_bar-wrapper {
+        height: 40px;
+      }
+      
+      .content-section p {
+        font-size: 14px;
+      }
+    }
+    
+    /* Mobile Portrait Breakpoint */
+    @media (max-width: 480px) {
+      .tab_switch_section {
+        padding: 10px;
+      }
+      
+      .tab_bar-item {
+        min-width: 80px;
+        padding: 0 10px;
+        font-size: 12px;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="login-container">
-        <div class="login-section">
-            <div class="login-app-title">APP STORE</div>
-            <div class="login-form">
-                <h2 class="login-heading">Login</h2>
-                <div class="login-form-group">
-                    <label for="email" class="login-label">Email</label>
-                    <input type="email" id="email" class="login-input" placeholder="Enter your email">
-                </div>
-                <div class="login-form-group">
-                    <label for="password" class="login-label">Password</label>
-                    <input type="password" id="password" class="login-input" placeholder="Enter your password">
-                </div>
-                <button class="login-btn-sign-in">Sign In</button>
-                <div class="login-forgot-password">Forgot Password</div>
-                <div class="login-sign-up-text">Don't have an account. <span class="login-sign-up-link">Sign Up</span></div>
-            </div>
+  <div class="tab_switch_section">
+    <div class="tab_bar-container">
+      <div class="tab_bar-scroll-container">
+        <div class="tab_bar-wrapper">
+          <div class="tab_bar-background"></div>
+          <div class="tab_bar-navigation">
+            <a href="#introduction" class="tab_bar-item active">Introduction</a>
+            <a href="#overview" class="tab_bar-item">Overview</a>
+            <a href="#gameplay" class="tab_bar-item">Gameplay</a>
+            <a href="#get-started" class="tab_bar-item">Get Started</a>
+            <a href="#about-founder" class="tab_bar-item">About Founder</a>
+          </div>
         </div>
-        <div class="login-game-ad" id="login-game-ad">
-            <img src="/api/placeholder/400/150" alt="Estfor Kingdom Logo" class="login-game-logo" id="login-game-logo">
-            <div class="login-play-btn">PLAY FREE & EARN</div>
-        </div>
+      </div>
     </div>
 
-    <!-- Go to Top Button -->
-    <div class="login-go-top" id="login-go-top">
-        <div class="login-go-top-arrow"></div>
+    <div class="content-section" id="introduction-content">
+      <h1>Introduction</h1>
+      <p>SIDUS HEROES is a pioneering, Web3, space-based gaming metaverse with epic lore, tradable tokens and
+        valuable resources. Your Hero's progress is saved across multiple games that fall under one
+        interplanetary ecosystem and a groundbreaking, profit-sharing Module System. This unique strategy
+        takes community engagement, in-game enhancements and endless possibilities for shaping players' own
+        destinies and fortunes to another level!.</p>
     </div>
+  </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Set background image for game ad section
-            const gameAd = document.getElementById('login-game-ad');
-            gameAd.style.backgroundImage = 'url("/api/placeholder/450/500")';
-            
-            // Validate form on submission
-            const form = document.querySelector('.login-btn-sign-in');
-            form.addEventListener('click', function(e) {
-                e.preventDefault();
-                const email = document.getElementById('email').value;
-                const password = document.getElementById('password').value;
-                
-                if (!email) {
-                    alert('Please enter your email');
-                    return;
-                }
-                
-                if (!password) {
-                    alert('Please enter your password');
-                    return;
-                }
-                
-                // Here you would typically send the form data to a server
-                console.log('Login attempt:', { email, password });
-            });
-            
-            // Forgot password functionality
-            const forgotPassword = document.querySelector('.login-forgot-password');
-            forgotPassword.addEventListener('click', function() {
-                alert('Password reset functionality would go here');
-            });
-            
-            // Sign up link
-            const signUpLink = document.querySelector('.login-sign-up-link');
-            signUpLink.addEventListener('click', function() {
-                alert('Sign up page would load here');
-            });
-            
-            // Responsive handling
-            function handleResponsive() {
-                if (window.innerWidth <= 768) {
-                    gameAd.style.minHeight = '300px';
-                } else {
-                    gameAd.style.minHeight = 'auto';
-                }
-            }
-            
-            window.addEventListener('resize', handleResponsive);
-            handleResponsive();
-            
-            // Go to Top Button Functionality
-            const goTopButton = document.getElementById('login-go-top');
-            
-            // Show button when user scrolls down 300px
-            window.addEventListener('scroll', function() {
-                if (window.pageYOffset > 300) {
-                    goTopButton.classList.add('login-visible');
-                } else {
-                    goTopButton.classList.remove('login-visible');
-                }
-            });
-            
-            // Scroll to top when button is clicked
-            goTopButton.addEventListener('click', function() {
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
-            });
-            
-            // For demo purposes - create a tall page to enable scrolling
-            function createScrollableContent() {
-                for (let i = 0; i < 5; i++) {
-                    const spacer = document.createElement('div');
-                    spacer.style.height = '600px';
-                    spacer.style.marginTop = '20px';
-                    spacer.style.background = '#2a3040';
-                    spacer.style.borderRadius = '8px';
-                    spacer.style.display = 'flex';
-                    spacer.style.justifyContent = 'center';
-                    spacer.style.alignItems = 'center';
-                    spacer.style.color = 'white';
-                    spacer.style.fontSize = '24px';
-                    spacer.textContent = `Content Section ${i + 1}`;
-                    document.body.appendChild(spacer);
-                }
-            }
-            
-            // Create content to demonstrate scrolling functionality
-            createScrollableContent();
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const tab_bar_background = document.querySelector('.tab_bar-background');
+      const tab_bar_navItems = document.querySelectorAll('.tab_bar-item');
+      const tab_bar_navbar = document.querySelector('.tab_bar-navigation');
+      const tab_bar_scrollContainer = document.querySelector('.tab_bar-scroll-container');
+      
+      // Calculate initial measurements
+      function tab_bar_updateLayout() {
+        // Calculate widths
+        const tab_bar_navWidth = tab_bar_navbar.offsetWidth;
+        const tab_bar_itemWidth = tab_bar_navWidth / tab_bar_navItems.length;
+        
+        // Get active index
+        const tab_bar_activeIndex = Array.from(tab_bar_navItems).findIndex(item => item.classList.contains('active'));
+        
+        // Update background position
+        tab_bar_updateBackgroundPosition(tab_bar_activeIndex);
+      }
+      
+      // Function to update background position
+      function tab_bar_updateBackgroundPosition(index) {
+        // Get the active item
+        const tab_bar_activeItem = tab_bar_navItems[index];
+        
+        // Calculate the width of the active item
+        const tab_bar_itemWidth = tab_bar_activeItem.offsetWidth;
+        
+        // Get the exact position (left offset) of the active item
+        const tab_bar_itemLeft = tab_bar_activeItem.offsetLeft;
+        
+        // Make the background slightly narrower than the item for better aesthetics
+        const tab_bar_backgroundWidth = tab_bar_itemWidth * 0.95;
+        
+        // Update background width and position
+        tab_bar_background.style.width = tab_bar_backgroundWidth + 'px';
+        tab_bar_background.style.left = (tab_bar_itemLeft + (tab_bar_itemWidth - tab_bar_backgroundWidth) / 2) + 'px';
+        
+        // Scroll the active tab into view with smooth behavior
+        scrollTabIntoView(tab_bar_activeItem);
+      }
+      
+      // Function to scroll tab into view
+      function scrollTabIntoView(tabElement) {
+        const scrollContainer = tab_bar_scrollContainer;
+        const tabLeft = tabElement.offsetLeft;
+        const tabWidth = tabElement.offsetWidth;
+        const containerWidth = scrollContainer.offsetWidth;
+        const scrollLeft = scrollContainer.scrollLeft;
+        
+        // Calculate the center position for the tab
+        const desiredScrollPosition = tabLeft - (containerWidth / 2) + (tabWidth / 2);
+        
+        // Scroll smoothly to the new position
+        scrollContainer.scrollTo({
+          left: desiredScrollPosition,
+          behavior: 'smooth'
         });
-    </script>
+      }
+      
+      // Initialize layout
+      setTimeout(tab_bar_updateLayout, 100); // Small delay to ensure DOM has updated
+      
+      // Add click event listeners
+      tab_bar_navItems.forEach((item, index) => {
+        item.addEventListener('click', function(e) {
+          e.preventDefault();
+          
+          // Remove active class from all items
+          tab_bar_navItems.forEach(navItem => navItem.classList.remove('active'));
+          
+          // Add active class to clicked item
+          this.classList.add('active');
+          
+          // Move background
+          tab_bar_updateBackgroundPosition(index);
+          
+          // Update content (in a real app, this would probably load different content)
+          const tab_bar_contentId = this.getAttribute('href').substring(1);
+          document.querySelector('.content-section').id = tab_bar_contentId + '-content';
+          document.querySelector('h1').textContent = this.textContent;
+        });
+      });
+      
+      // Handle window resize
+      window.addEventListener('resize', function() {
+        setTimeout(tab_bar_updateLayout, 100); // Small delay to ensure DOM has updated
+      });
+      
+      // Force layout update on orientation change for mobile devices
+      window.addEventListener('orientationchange', function() {
+        setTimeout(tab_bar_updateLayout, 200); // Longer delay for orientation changes
+      });
+    });
+  
+  
+  </script>
 </body>
 </html>
