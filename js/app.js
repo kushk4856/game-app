@@ -503,6 +503,64 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
+// ============= app listing form ============ 
+document.addEventListener('DOMContentLoaded', function() {
+  // Handle file uploads
+  const fileInputs = [
+      {
+          input: document.getElementById('app_listing-logo-upload'),
+          display: document.getElementById('app_listing-logo-file-name')
+      },
+      {
+          input: document.getElementById('app_listing-images-upload'),
+          display: document.getElementById('app_listing-images-file-name')
+      },
+      {
+          input: document.getElementById('app_listing-awards-upload'),
+          display: document.getElementById('app_listing-awards-file-name')
+      }
+  ];
+  
+  fileInputs.forEach(item => {
+      item.input.addEventListener('change', function() {
+          if (this.files.length > 0) {
+              if (this.files.length === 1) {
+                  item.display.textContent = this.files[0].name;
+              } else {
+                  item.display.textContent = `${this.files.length} files selected`;
+              }
+          } else {
+              item.display.textContent = '';
+          }
+      });
+  });
+  
+  // Handle form submission
+  const form = document.getElementById('app_listing-form');
+  form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      // Add your form submission logic here
+      alert('Form submitted successfully!');
+  });
+  
+  // Input focus effect
+  const inputs = document.querySelectorAll('.app_listing-input');
+  inputs.forEach(input => {
+      input.addEventListener('focus', function() {
+          this.classList.add('active');
+      });
+      
+      input.addEventListener('blur', function() {
+          if (this.value === '') {
+              this.classList.remove('active');
+          }
+      });
+  });
+});
+
+
+
+
 
 
 

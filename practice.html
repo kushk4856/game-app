@@ -1,294 +1,396 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Responsive Tabs UI</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    }
-    
-    body {
-      background-color: #1a2432;
-      color: white;
-      padding: 20px;
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      min-height: 100vh;
-    }
-    
-    .tab_switch_section {
-      max-width: 880px;
-      width: 100%;
-      margin-top: 20px;
-      background-color: #222C34;
-      padding: 15px;
-      border-radius: 4px;
-    }
-    
-    .tab_bar-container {
-      position: relative;
-      margin-bottom: 0px;
-      border-radius: 8px;
-      background-color: #33424E;
-      padding: 4px;
-      overflow: hidden;
-      width: 100%;
-    }
-    
-    .tab_bar-scroll-container {
-      width: 100%;
-      overflow-x: auto;
-      scrollbar-width: none; /* Firefox */
-      -ms-overflow-style: none; /* IE and Edge */
-    }
-    
-    .tab_bar-scroll-container::-webkit-scrollbar {
-      display: none; /* Chrome, Safari, Opera */
-    }
-    
-    .tab_bar-wrapper {
-      position: relative;
-      display: flex;
-      align-items: center;
-      height: 50px;
-      width: 100%;
-      min-width: max-content; /* Ensures tabs don't shrink too small */
-    }
-    
-    .tab_bar-background {
-      position: absolute;
-      height: calc(100% - 8px);
-      background-color: #485056;
-      border-radius: 6px;
-      transition: all 0.3s ease;
-      z-index: 1;
-    }
-    
-    .tab_bar-navigation {
-      position: relative;
-      display: flex;
-      width: 100%;
-      height: 100%;
-      z-index: 2;
-    }
-    
-    .tab_bar-item {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 0 20px;
-      min-width: 120px;
-      font-size: 16px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      border-radius: 6px;
-      color: rgba(255, 255, 255, 0.7);
-      text-decoration: none;
-      white-space: nowrap;
-    }
-    
-    .tab_bar-item.active {
-      color: white;
-    }
-    
-    .content-section {
-      padding: 20px 10px;
-      background-color: transparent;
-      border-radius: 12px;
-      width: 100%;
-    }
-    
-    .content-section h1 {
-      font-size: 24px;
-      font-weight: 700;
-    }
-    
-    .content-section p {
-      margin-top: 10px;
-      font-size: 16px;
-      line-height: 1.6;
-    }
-    
-    /* Tablet Breakpoint */
-    @media (max-width: 768px) {
-      .tab_bar-item {
-        min-width: 100px;
-        padding: 0 15px;
-        font-size: 14px;
-      }
-      
-      .tab_bar-wrapper {
-        height: 45px;
-      }
-      
-      .content-section h1 {
-        font-size: 22px;
-      }
-    }
-    
-    /* Mobile Landscape Breakpoint */
-    @media (max-width: 576px) {
-      .tab_bar-item {
-        min-width: 90px;
-        padding: 0 12px;
-        font-size: 13px;
-      }
-      
-      .tab_bar-wrapper {
-        height: 40px;
-      }
-      
-      .content-section p {
-        font-size: 14px;
-      }
-    }
-    
-    /* Mobile Portrait Breakpoint */
-    @media (max-width: 480px) {
-      .tab_switch_section {
-        padding: 10px;
-      }
-      
-      .tab_bar-item {
-        min-width: 80px;
-        padding: 0 10px;
-        font-size: 12px;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App Listing Submission Form</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+        
+        body {
+            background-color: #0d1117;
+            color: #ffffff;
+            padding: 20px;
+        }
+        
+        .app_listing-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            padding-bottom: 60px;
+            position: relative;
+        }
+        
+        .app_listing-field {
+            background-color: #1e2430;
+            border-radius: 6px;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .app_listing-label {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #ffffff;
+        }
+        
+        .app_listing-input {
+            background-color: #131922;
+            border: 1px solid #30363d;
+            border-radius: 4px;
+            padding: 10px;
+            color: #ffffff;
+            width: 100%;
+        }
+        
+        .app_listing-input:focus {
+            outline: none;
+            border-color: #0d66d0;
+            box-shadow: 0 0 0 2px rgba(13, 102, 208, 0.25);
+        }
+        
+        .app_listing-input.active {
+            border-color: #0d66d0;
+        }
+        
+        .app_listing-subtext {
+            font-size: 12px;
+            color: #8b949e;
+            margin-top: 5px;
+        }
+        
+        .app_listing-file-section {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 8px;
+        }
+        
+        .app_listing-file-label {
+            background-color: #21262d;
+            border: 1px solid #30363d;
+            border-radius: 4px;
+            padding: 8px 12px;
+            font-size: 12px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        
+        .app_listing-file-label:hover {
+            background-color: #282e38;
+        }
+        
+        .app_listing-file-input {
+            display: none;
+        }
+        
+        .app_listing-file-name {
+            font-size: 12px;
+            color: #8b949e;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        
+        .app_listing-submit-wrapper {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: flex-start;
+            padding-top: 15px;
+        }
+        
+        .app_listing-submit {
+            background-color: #238636;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            padding: 12px 24px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            width: auto;
+        }
+        
+        .app_listing-submit:hover {
+            background-color: #2ea043;
+        }
+        
+        textarea.app_listing-input {
+            resize: none;
+            min-height: 100px;
+        }
+        
+        /* Responsive styles */
+        @media screen and (max-width: 992px) {
+            .app_listing-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media screen and (max-width: 576px) {
+            .app_listing-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
-  <div class="tab_switch_section">
-    <div class="tab_bar-container">
-      <div class="tab_bar-scroll-container">
-        <div class="tab_bar-wrapper">
-          <div class="tab_bar-background"></div>
-          <div class="tab_bar-navigation">
-            <a href="#introduction" class="tab_bar-item active">Introduction</a>
-            <a href="#overview" class="tab_bar-item">Overview</a>
-            <a href="#gameplay" class="tab_bar-item">Gameplay</a>
-            <a href="#get-started" class="tab_bar-item">Get Started</a>
-            <a href="#about-founder" class="tab_bar-item">About Founder</a>
-          </div>
+    <form id="app_listing-form">
+        <div class="app_listing-container">
+            <!-- Row 1 -->
+            <div class="app_listing-field">
+                <label class="app_listing-label" for="app_listing-app-name">App Name</label>
+                <input type="text" class="app_listing-input" id="app_listing-app-name" placeholder="Enter your full name">
+            </div>
+            
+            <div class="app_listing-field">
+                <label class="app_listing-label" for="app_listing-app-category">App Category</label>
+                <input type="text" class="app_listing-input" id="app_listing-app-category" placeholder="Enter your email address">
+            </div>
+            
+            <div class="app_listing-field">
+                <label class="app_listing-label" for="app_listing-app-subcategory">App Sub Category</label>
+                <input type="text" class="app_listing-input" id="app_listing-app-subcategory" placeholder="Enter your email address">
+            </div>
+            
+            <!-- Row 2 -->
+            <div class="app_listing-field">
+                <label class="app_listing-label" for="app_listing-website-url">Website URL</label>
+                <input type="text" class="app_listing-input" id="app_listing-website-url" placeholder="Enter your full name">
+            </div>
+            
+            <div class="app_listing-field">
+                <label class="app_listing-label" for="app_listing-instagram-url">Instagram URL</label>
+                <input type="text" class="app_listing-input" id="app_listing-instagram-url" placeholder="Enter your phone number">
+            </div>
+            
+            <div class="app_listing-field">
+                <label class="app_listing-label" for="app_listing-facebook-url">Facebook URL</label>
+                <input type="text" class="app_listing-input" id="app_listing-facebook-url" placeholder="Enter your phone number">
+            </div>
+            
+            <!-- Row 3 -->
+            <div class="app_listing-field">
+                <label class="app_listing-label" for="app_listing-twitter-url">Twitter URL</label>
+                <input type="text" class="app_listing-input active" id="app_listing-twitter-url" placeholder="Enter your full name">
+            </div>
+            
+            <div class="app_listing-field">
+                <label class="app_listing-label" for="app_listing-medium-url">Medium URL</label>
+                <input type="text" class="app_listing-input" id="app_listing-medium-url" placeholder="Enter your email address">
+            </div>
+            
+            <div class="app_listing-field">
+                <label class="app_listing-label" for="app_listing-linkedin-url">LinkedIn URL</label>
+                <input type="text" class="app_listing-input" id="app_listing-linkedin-url" placeholder="Enter your email address">
+            </div>
+            
+            <!-- Row 4 -->
+            <div class="app_listing-field">
+                <label class="app_listing-label" for="app_listing-about">About Your App</label>
+                <textarea class="app_listing-input" id="app_listing-about" placeholder="Enter your full name"></textarea>
+            </div>
+            
+            <div class="app_listing-field">
+                <label class="app_listing-label" for="app_listing-introduction">Introduction</label>
+                <textarea class="app_listing-input" id="app_listing-introduction" placeholder="Enter your phone number"></textarea>
+            </div>
+            
+            <div class="app_listing-field">
+                <label class="app_listing-label" for="app_listing-overview">Overview</label>
+                <textarea class="app_listing-input" id="app_listing-overview" placeholder="Enter your phone number"></textarea>
+            </div>
+            
+            <!-- Row 5 -->
+            <div class="app_listing-field">
+                <label class="app_listing-label" for="app_listing-faqs">FAQs</label>
+                <textarea class="app_listing-input" id="app_listing-faqs" placeholder="Enter your full name"></textarea>
+            </div>
+            
+            <div class="app_listing-field">
+                <label class="app_listing-label" for="app_listing-benefits">Benefits</label>
+                <textarea class="app_listing-input" id="app_listing-benefits" placeholder="Enter your phone number"></textarea>
+            </div>
+            
+            <div class="app_listing-field">
+                <label class="app_listing-label" for="app_listing-press-url">Press Release URL</label>
+                <input type="text" class="app_listing-input" id="app_listing-press-url" placeholder="Enter your phone number">
+            </div>
+            
+            <!-- Row 6 -->
+            <div class="app_listing-field">
+                <label class="app_listing-label" for="app_listing-developed-by">Developed By</label>
+                <input type="text" class="app_listing-input" id="app_listing-developed-by" placeholder="Enter your full name">
+            </div>
+            
+            <div class="app_listing-field">
+                <label class="app_listing-label" for="app_listing-published-by">Published by</label>
+                <input type="text" class="app_listing-input" id="app_listing-published-by" placeholder="Enter your email address">
+            </div>
+            
+            <div class="app_listing-field">
+                <label class="app_listing-label" for="app_listing-release-date">Release Date</label>
+                <input type="text" class="app_listing-input" id="app_listing-release-date" placeholder="Enter your email address">
+            </div>
+            
+            <!-- Row 7 -->
+            <div class="app_listing-field">
+                <label class="app_listing-label" for="app_listing-supported-language">Supported Language</label>
+                <input type="text" class="app_listing-input" id="app_listing-supported-language" placeholder="Enter your full name">
+            </div>
+            
+            <div class="app_listing-field">
+                <label class="app_listing-label" for="app_listing-additional-terms">Additional Terms</label>
+                <input type="text" class="app_listing-input" id="app_listing-additional-terms" placeholder="Enter your email address">
+            </div>
+            
+            <div class="app_listing-field">
+                <label class="app_listing-label" for="app_listing-publisher-name">Publisher Name</label>
+                <input type="text" class="app_listing-input" id="app_listing-publisher-name" placeholder="Enter your email address">
+            </div>
+            
+            <!-- Row 8 -->
+            <div class="app_listing-field">
+                <label class="app_listing-label" for="app_listing-tokens-coins">Tokens and Coins Supported</label>
+                <input type="text" class="app_listing-input" id="app_listing-tokens-coins" placeholder="Enter your full name">
+            </div>
+            
+            <div class="app_listing-field">
+                <label class="app_listing-label" for="app_listing-availability">Availability</label>
+                <input type="text" class="app_listing-input" id="app_listing-availability" placeholder="Enter your email address">
+            </div>
+            
+            <div class="app_listing-field">
+                <label class="app_listing-label" for="app_listing-publisher-name2">Publisher Name</label>
+                <input type="text" class="app_listing-input" id="app_listing-publisher-name2" placeholder="Enter your email address">
+            </div>
+            
+            <!-- Row 9 -->
+            <div class="app_listing-field">
+                <label class="app_listing-label" for="app_listing-app-logo">App Logo</label>
+                <div class="app_listing-subtext">Recommended Size: 800x750px</div>
+                <div class="app_listing-file-section">
+                    <span>Files:</span>
+                    <label class="app_listing-file-label" for="app_listing-logo-upload">Upload your App logo</label>
+                    <input type="file" class="app_listing-file-input" id="app_listing-logo-upload">
+                    <span class="app_listing-file-name" id="app_listing-logo-file-name"></span>
+                </div>
+            </div>
+            
+            <div class="app_listing-field">
+                <label class="app_listing-label" for="app_listing-app-images">App Images</label>
+                <div class="app_listing-subtext">Recommended Size: 2048×1536px</div>
+                <div class="app_listing-file-section">
+                    <span>Files:</span>
+                    <label class="app_listing-file-label" for="app_listing-images-upload">Upload your App Images</label>
+                    <input type="file" class="app_listing-file-input" id="app_listing-images-upload" multiple>
+                    <span class="app_listing-file-name" id="app_listing-images-file-name"></span>
+                </div>
+            </div>
+            
+            <div class="app_listing-field">
+                <label class="app_listing-label" for="app_listing-awards">Awards</label>
+                <div class="app_listing-subtext">Recommended Size: 800×750px</div>
+                <div class="app_listing-file-section">
+                    <span>Files:</span>
+                    <label class="app_listing-file-label" for="app_listing-awards-upload">Upload your Awards</label>
+                    <input type="file" class="app_listing-file-input" id="app_listing-awards-upload">
+                    <span class="app_listing-file-name" id="app_listing-awards-file-name"></span>
+                </div>
+            </div>
+            
+            <!-- Row 10 -->
+            <div class="app_listing-field">
+                <label class="app_listing-label" for="app_listing-token-name">Token Name</label>
+                <input type="text" class="app_listing-input" id="app_listing-token-name" placeholder="Upload your App logo">
+            </div>
+            
+            <div class="app_listing-field">
+                <label class="app_listing-label" for="app_listing-token-platform">Token Listed on which Platform</label>
+                <input type="text" class="app_listing-input" id="app_listing-token-platform" placeholder="Upload at least 5 Screenshots">
+            </div>
+            
+            <div class="app_listing-field">
+                <label class="app_listing-label" for="app_listing-other-detail">Other Detail</label>
+                <input type="text" class="app_listing-input" id="app_listing-other-detail" placeholder="Enter your email address">
+            </div>
+            
+            <!-- Submit Button -->
+            <div class="app_listing-submit-wrapper">
+                <button type="submit" class="app_listing-submit" id="app_listing-submit-btn">Submit Your App</button>
+            </div>
         </div>
-      </div>
-    </div>
-
-    <div class="content-section" id="introduction-content">
-      <h1>Introduction</h1>
-      <p>SIDUS HEROES is a pioneering, Web3, space-based gaming metaverse with epic lore, tradable tokens and
-        valuable resources. Your Hero's progress is saved across multiple games that fall under one
-        interplanetary ecosystem and a groundbreaking, profit-sharing Module System. This unique strategy
-        takes community engagement, in-game enhancements and endless possibilities for shaping players' own
-        destinies and fortunes to another level!.</p>
-    </div>
-  </div>
-
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      const tab_bar_background = document.querySelector('.tab_bar-background');
-      const tab_bar_navItems = document.querySelectorAll('.tab_bar-item');
-      const tab_bar_navbar = document.querySelector('.tab_bar-navigation');
-      const tab_bar_scrollContainer = document.querySelector('.tab_bar-scroll-container');
-      
-      // Calculate initial measurements
-      function tab_bar_updateLayout() {
-        // Calculate widths
-        const tab_bar_navWidth = tab_bar_navbar.offsetWidth;
-        const tab_bar_itemWidth = tab_bar_navWidth / tab_bar_navItems.length;
-        
-        // Get active index
-        const tab_bar_activeIndex = Array.from(tab_bar_navItems).findIndex(item => item.classList.contains('active'));
-        
-        // Update background position
-        tab_bar_updateBackgroundPosition(tab_bar_activeIndex);
-      }
-      
-      // Function to update background position
-      function tab_bar_updateBackgroundPosition(index) {
-        // Get the active item
-        const tab_bar_activeItem = tab_bar_navItems[index];
-        
-        // Calculate the width of the active item
-        const tab_bar_itemWidth = tab_bar_activeItem.offsetWidth;
-        
-        // Get the exact position (left offset) of the active item
-        const tab_bar_itemLeft = tab_bar_activeItem.offsetLeft;
-        
-        // Make the background slightly narrower than the item for better aesthetics
-        const tab_bar_backgroundWidth = tab_bar_itemWidth * 0.95;
-        
-        // Update background width and position
-        tab_bar_background.style.width = tab_bar_backgroundWidth + 'px';
-        tab_bar_background.style.left = (tab_bar_itemLeft + (tab_bar_itemWidth - tab_bar_backgroundWidth) / 2) + 'px';
-        
-        // Scroll the active tab into view with smooth behavior
-        scrollTabIntoView(tab_bar_activeItem);
-      }
-      
-      // Function to scroll tab into view
-      function scrollTabIntoView(tabElement) {
-        const scrollContainer = tab_bar_scrollContainer;
-        const tabLeft = tabElement.offsetLeft;
-        const tabWidth = tabElement.offsetWidth;
-        const containerWidth = scrollContainer.offsetWidth;
-        const scrollLeft = scrollContainer.scrollLeft;
-        
-        // Calculate the center position for the tab
-        const desiredScrollPosition = tabLeft - (containerWidth / 2) + (tabWidth / 2);
-        
-        // Scroll smoothly to the new position
-        scrollContainer.scrollTo({
-          left: desiredScrollPosition,
-          behavior: 'smooth'
+    </form>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Handle file uploads
+            const fileInputs = [
+                {
+                    input: document.getElementById('app_listing-logo-upload'),
+                    display: document.getElementById('app_listing-logo-file-name')
+                },
+                {
+                    input: document.getElementById('app_listing-images-upload'),
+                    display: document.getElementById('app_listing-images-file-name')
+                },
+                {
+                    input: document.getElementById('app_listing-awards-upload'),
+                    display: document.getElementById('app_listing-awards-file-name')
+                }
+            ];
+            
+            fileInputs.forEach(item => {
+                item.input.addEventListener('change', function() {
+                    if (this.files.length > 0) {
+                        if (this.files.length === 1) {
+                            item.display.textContent = this.files[0].name;
+                        } else {
+                            item.display.textContent = `${this.files.length} files selected`;
+                        }
+                    } else {
+                        item.display.textContent = '';
+                    }
+                });
+            });
+            
+            // Handle form submission
+            const form = document.getElementById('app_listing-form');
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                // Add your form submission logic here
+                alert('Form submitted successfully!');
+            });
+            
+            // Input focus effect
+            const inputs = document.querySelectorAll('.app_listing-input');
+            inputs.forEach(input => {
+                input.addEventListener('focus', function() {
+                    this.classList.add('active');
+                });
+                
+                input.addEventListener('blur', function() {
+                    if (this.value === '') {
+                        this.classList.remove('active');
+                    }
+                });
+            });
         });
-      }
-      
-      // Initialize layout
-      setTimeout(tab_bar_updateLayout, 100); // Small delay to ensure DOM has updated
-      
-      // Add click event listeners
-      tab_bar_navItems.forEach((item, index) => {
-        item.addEventListener('click', function(e) {
-          e.preventDefault();
-          
-          // Remove active class from all items
-          tab_bar_navItems.forEach(navItem => navItem.classList.remove('active'));
-          
-          // Add active class to clicked item
-          this.classList.add('active');
-          
-          // Move background
-          tab_bar_updateBackgroundPosition(index);
-          
-          // Update content (in a real app, this would probably load different content)
-          const tab_bar_contentId = this.getAttribute('href').substring(1);
-          document.querySelector('.content-section').id = tab_bar_contentId + '-content';
-          document.querySelector('h1').textContent = this.textContent;
-        });
-      });
-      
-      // Handle window resize
-      window.addEventListener('resize', function() {
-        setTimeout(tab_bar_updateLayout, 100); // Small delay to ensure DOM has updated
-      });
-      
-      // Force layout update on orientation change for mobile devices
-      window.addEventListener('orientationchange', function() {
-        setTimeout(tab_bar_updateLayout, 200); // Longer delay for orientation changes
-      });
-    });
-  
-  
-  </script>
+   
+   
+   </script>
 </body>
 </html>
