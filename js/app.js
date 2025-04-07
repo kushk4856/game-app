@@ -306,31 +306,31 @@ document.addEventListener("DOMContentLoaded", function() {
   
 //   ============================testimonial carausel === 
 
-document.addEventListener('DOMContentLoaded', function() {
-    const testimonialCarousel = new Swiper('#testimonial_carousel_swiper', {
-      slidesPerView: 1,
-      spaceBetween: 30,
-      loop: true,
-      navigation: {
-        nextEl: '#testimonial_carousel_button_next',
-        prevEl: '#testimonial_carousel_button_prev',
-      },
-      breakpoints: {
-        640: {
-          slidesPerView: 1,
-          spaceBetween: 20,
-        },
-        768: {
-          slidesPerView: 2,
-          spaceBetween: 30,
-        },
-        1024: {
-          slidesPerView: 2,
-          spaceBetween: 30,
-        },
-      }
-    });
-  });
+// document.addEventListener('DOMContentLoaded', function() {
+//     const testimonialCarousel = new Swiper('#testimonial_carousel_swiper', {
+//       slidesPerView: 1,
+//       spaceBetween: 30,
+//       loop: true,
+//       navigation: {
+//         nextEl: '#testimonial_carousel_button_next',
+//         prevEl: '#testimonial_carousel_button_prev',
+//       },
+//       breakpoints: {
+//         640: {
+//           slidesPerView: 1,
+//           spaceBetween: 20,
+//         },
+//         768: {
+//           slidesPerView: 2,
+//           spaceBetween: 30,
+//         },
+//         1024: {
+//           slidesPerView: 2,
+//           spaceBetween: 30,
+//         },
+//       }
+//     });
+//   });
 
 
 // ========================= faq accordion ============ 

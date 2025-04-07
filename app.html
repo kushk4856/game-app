@@ -53,10 +53,20 @@
 
     .swiper {
       width: 100%;
-      height: 300px;
-      margin: 20px auto;
+      height: 340px;
+      /* margin: 20px auto; */
       overflow: hidden;
       border-radius: 5px;
+    }
+
+    @media(max-width: 768px){
+      .swiper {
+      width: 100%;
+      height: 230px;
+      /* margin: 20px auto; */
+      overflow: hidden;
+      border-radius: 5px;
+    }
     }
   </style>
 
@@ -236,23 +246,57 @@
           <div class="left-column">
 
 
-            <div class="section">
-              <div #swiperRef="" class="swiper mySwiper">
-                <div class="swiper-wrapper">
-                  <div style="width: 400px !important;" class="swiper-slide"><img src="./assets/images/screenshot-1.png"
-                      alt=""></div>
-                  <div class="swiper-slide"><img src="./assets/images/sidus-detail-img.png" alt=""></div>
-                  <div class="swiper-slide">Slide 3</div>
-                  <div class="swiper-slide">Slide 4</div>
+            <div class="app_swiper-container gradient_bg">
+              <h1 class="app_swiper-title gradient-text">SIDUS HEROES GALLERY</h1>
+              <p class="app_swiper-subtitle">Some of the Game Screenshots</p>
+              
+              <div class="app_swiper-wrapper">
+                <div id="app_swiper" class="app_swiper swiper">
+                  <div class="swiper-wrapper">
+                    <!-- Main slide with logo and play button -->
+                    <div class="swiper-slide">
+                      <img src="/assets/images/sidus-heroes.png" alt="Sidus Heroes Main">
+                      <div class="logo-overlay">
+                        <!-- <img src="/api/placeholder/400/80" alt="Sidus Heroes Logo" style="width: 100%; height: auto;"> -->
+                      </div>
+                      <div class="play-button-overlay"></div>
+                    </div>
+                    
+                    <!-- Game character slides -->
+                    <div class="swiper-slide">
+                      <img src="/assets/images/New Uhd Pubg Mobile.jpg" alt="Game Character 1">
+                    </div>
+                    
+                    <div class="swiper-slide">
+                      <img src="/assets/images/sidus-heroes.png" alt="Game Character 2">
+                    </div>
+                    
+                    <div class="swiper-slide">
+                      <img src="/assets/images/jungle kingdom.jpg" alt="Game Character 3">
+                    </div>
+                    
+                    <div class="swiper-slide">
+                      <img src="/assets/images/daisy circuit mario kart.jpg" alt="Game Character 4">
+                    </div>
+                    
+                    <div class="swiper-slide">
+                      <img src="/assets/images/download.jpg" alt="Game Scene">
+                    </div>
+                  </div>
+                  
+                  <!-- Navigation buttons -->
+                  <div class="app_swiper-button-next swiper-button-next"></div>
+                  <div class="app_swiper-button-prev swiper-button-prev"></div>
+                  
+                  <!-- Pagination dots -->
+                  <div class="app_swiper-pagination swiper-pagination"></div>
                 </div>
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-pagination"></div>
               </div>
             </div>
 
-            <div class="section dark:bg-[#222C34] p-[10px] lg:p-[20px]">
-              <h2 class="section-title">About Sidus Heroes</h2>
+            <div class="section  p-[10px] gradient_bg lg:p-[20px]">
+              <h2 class="section-title gradient-text">About Sidus Heroes</h2>
+              <h3>Sidus Heroes is a pioneering, Web3, space-based gaming metaverse with epic lore</h3>
               <p class="about-text">
                 SIDUS HEROES is a pioneering, Web3, space-based gaming metaverse where you earn tradable tokens and
                 valuable resources. Your Hero's progress is saved across multiple games that fall under one
@@ -262,8 +306,77 @@
               </p>
             </div>
 
-            <div class="section offer_banner">
-              <h2 class="section-title">Offer & Promotion</h2>
+
+            <!-- ============== alternative  games section start ================  -->
+            <div class="alternate_game-container gradient_bg">
+              <div class="alternate_game-header">
+                <h1 class="alternate_game-title gradient-text">TOP RATED SIDUS HEROES ALTERNATIVES</h1>
+                <p class="alternate_game-subtitle">Sidus Heroes is a pioneering, Web3, space-based gaming metaverse with epic lore</p>
+              </div>
+              
+              <div class="alternate_game-grid">
+                <!-- Farm Clicker -->
+                <div class="alternate_game-card">
+                  <div class="alternate_game-content">
+                    <div class="alternate_game-logo">
+                      <img src="./assets/images/farm-side-img.png" alt="Farm Clicker Logo">
+                    </div>
+                    <div class="alternate_game-info">
+                      <div class="alternate_game-name">Farm Clicker</div>
+                      <div class="alternate_game-tags">
+                        <span class="alternate_game-tag">DeFi</span>
+                        <span class="alternate_game-tag">WALLET</span>
+                        
+                      </div>
+                      <button class="explore-btn">Explore</button>
+
+                    </div>
+                  </div>
+                </div>
+                
+                <!-- Saros -->
+                <div class="alternate_game-card">
+                  <div class="alternate_game-content">
+                    <div class="alternate_game-logo circle">
+                      <img src="./assets/images/saros-side.png" alt="Saros Logo" style="background-color: #7134f5;">
+                    </div>
+                    <div class="alternate_game-info">
+                      <div class="alternate_game-name">Saros</div>
+                      <div class="alternate_game-tags">
+                        <span class="alternate_game-tag">DeFi</span>
+                        <span class="alternate_game-tag">WALLET</span>
+                      </div>
+                      <button class="explore-btn">Explore</button>
+                    </div>
+                   
+                  </div>
+                </div>
+                
+                <!-- Henio -->
+                <div class="alternate_game-card">
+                  <div class="alternate_game-content">
+                    <div class="alternate_game-logo">
+                      <img src="./assets/images/henio.png" alt="Henio Logo">
+                    </div>
+                    <div class="alternate_game-info">
+                      <div class="alternate_game-name">Henio</div>
+                      <div class="alternate_game-tags">
+                        <span class="alternate_game-tag">DeFi</span>
+                        <span class="alternate_game-tag">WALLET</span>
+                      </div>
+                      <button class="explore-btn">Explore</button>
+                    </div>
+                  
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- ============== alternative  games section end ================  -->
+
+
+            <div class="section offer_banner gradient_bg">
+              <h2 class="section-title gradient-text">Offer & Promotion</h2>
+              <h3>Sidus Heroes is a pioneering, Web3, space-based gaming metaverse with epic lore</h3>
               <div class="payment-options">
                 <!-- <div class="payment-card">
                   <div class="payment-title">PAY WITH CARD</div>
@@ -290,10 +403,11 @@
 
             <!-- ====token chart section  -->
 
-            <div class="token_chart-container mb-[30px]">
+            <div class="token_chart-container gradient_bg mb-[30px]">
               <div class="token_chart-header">
                 <div>
-                  <div class="token_chart-title">SIDUS Token Price Chart</div>
+                  <div class="token_chart-title gradient-text">SIDUS TOKEN PRICE CHART (REAL TIME)</div>
+                  <h3>Sidus Heroes is a pioneering, Web3, space-based gaming metaverse with epic lore</h3>
                   <!-- <div class="token_chart-subtitle">(Real Time)</div> -->
                 </div>
               </div>
@@ -315,8 +429,9 @@
             </div>
 
             <!-- token stats sectin  -->
-            <div class="token_stats-container">
-              <h1 class="token_stats-title">Token Statistics</h1>
+            <div class="token_stats-container gradient_bg">
+              <h1 class="token_stats-title gradient-text">Token Statistics</h1>
+              <h3 class="token_stats_subtitle">Sidus Heroes is a pioneering, Web3, space-based gaming metaverse with epic lore</h3>
 
               <div class="token_stats-grid">
                 <!-- Market Cap -->
@@ -358,7 +473,7 @@
             </div>
 
             <!-- ======tokens Availability section ===  -->
-            <div class="token_cards-container">
+            <!-- <div class="token_cards-container">
               <div class="token_cards-card">
                 <h2 class="token_cards-title">Tokens/Coins that you can play with</h2>
                 <div class="token_cards-tokens">
@@ -387,10 +502,10 @@
                   <div class="token_cards-availability-text">Available Worldwide</div>
                 </div>
               </div>
-            </div>
+            </div> -->
 
             <!-- ====switch tab section ===  -->
-            <div class="tab_switch_section">
+            <div class="tab_switch_section gradient_bg">
               <div class="tab_bar-container">
                 <div class="tab_bar-scroll-container">
                   <div class="tab_bar-wrapper">
@@ -407,7 +522,8 @@
               </div>
           
               <div class="content-section" id="introduction-content">
-                <h1>Introduction</h1>
+                <h1 class="gradient-text">Introduction</h1>
+                <h3>Sidus Heroes is a pioneering, Web3, space-based gaming metaverse with epic lore</h3>
                 <p>SIDUS HEROES is a pioneering, Web3, space-based gaming metaverse with epic lore, tradable tokens and
                   valuable resources. Your Hero's progress is saved across multiple games that fall under one
                   interplanetary ecosystem and a groundbreaking, profit-sharing Module System. This unique strategy
@@ -419,8 +535,8 @@
 
 
             <!-- ====== social container =========  -->
-            <div class="social_block">
-              <div class="social_text">
+            <div class="social_block gradient_bg">
+              <div class="social_text ">
                 Follow Sidus Heros with us on Social Media
               </div>
               <div class="social_icon">
@@ -433,7 +549,7 @@
             <!-- ======= social container end ====  -->
 
             <!-- rating section ====  -->
-            <div class="token_cards-container">
+            <!-- <div class="token_cards-container">
               <div class="token_cards-card">
                 <h2 class="token_cards-title">Ratings</h2>
                 <div class="token_cards-tokens ratings">
@@ -470,7 +586,7 @@
                 </div>
               </div>
               <div class="token_cards-card">
-                <!-- <h2 class="token_cards-title">Availability</h2> -->
+                
                 <div class="token_card_center">
                   <div class="token_cards_game">
                     <img src="./assets/icons/game-controller-icon.png" alt="">
@@ -478,16 +594,16 @@
                   <div class="token_cards_text">5000+ Players</div>
                 </div>
               </div>
-            </div>
+            </div> -->
             <!-- rating section end====  -->
 
             <!-- ====== testimonial carausel section ====  -->
-            <div class="testimonial_carousel_container">
+            <!-- <div class="testimonial_carousel_container">
               <h1 class="testimonial_carousel_title">Reviews</h1>
 
               <div class="testimonial_carousel_swiper swiper" id="testimonial_carousel_swiper">
                 <div class="swiper-wrapper">
-                  <!-- Slide 1 -->
+              
                   <div class="swiper-slide">
                     <div class="testimonial_carousel_slide">
                       <div class="testimonial_carousel_stars">
@@ -510,7 +626,7 @@
                     </div>
                   </div>
 
-                  <!-- Slide 2 -->
+               
                   <div class="swiper-slide">
                     <div class="testimonial_carousel_slide">
                       <div class="testimonial_carousel_stars">
@@ -530,7 +646,7 @@
                     </div>
                   </div>
 
-                  <!-- Additional slide examples -->
+             
                   <div class="swiper-slide">
                     <div class="testimonial_carousel_slide">
                       <div class="testimonial_carousel_stars">
@@ -562,17 +678,85 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </div> -->
             <!-- ====== testimonial carausel section ====  -->
 
 
+<!-- ========= review rating section =====================  -->
+<div class="new_review-container gradient_bg">
+  <div class="new_review-header">
+      <h2 class="new_review-title gradient-text">RATINGS & REVIEWS</h2>
+      <p class="new_review-subtitle">Sidus Heroes is a pioneering, Web3, space-based gaming metaverse with epic lore</p>
+  </div>
 
+  <div class="new_review-score">
+      <div class="new_review-rating">4.3
+        <div>  <div class="new_review-stars">
+          ★★★★☆
+      </div>
+      <div class="new_review-ratings-count">482 Ratings</div></div>
+      </div>
+      <div class="new_review-bars">
+          <div class="new_review-bar">
+              <div class="new_review-bar-number">5</div>
+              <div class="new_review-bar-fill"></div>
+          </div>
+          <div class="new_review-bar">
+              <div class="new_review-bar-number">4</div>
+              <div class="new_review-bar-fill"></div>
+          </div>
+          <div class="new_review-bar">
+              <div class="new_review-bar-number">3</div>
+              <div class="new_review-bar-fill"></div>
+          </div>
+          <div class="new_review-bar">
+              <div class="new_review-bar-number">2</div>
+              <div class="new_review-bar-fill"></div>
+          </div>
+          <div class="new_review-bar">
+              <div class="new_review-bar-number">1</div>
+              <div class="new_review-bar-fill"></div>
+          </div>
+      </div>
+  </div>
+  
+
+
+  <div class="new_review-user">
+      <div class="new_review-user-header">
+          <div class="new_review-user-name">Andrew Tate</div>
+          <!-- <div class="new_review-user-date">20 Jan 2025</div> -->
+       
+      </div>
+      <div class="new_review-user-stars">★★★☆☆<span class="new_review-user-date"> 20 Jan 2025</span></div>
+      <p class="new_review-user-content">
+          Sidus Heroes takes Play-to-Earn gaming to a whole new level with its expansive Web3 metaverse. Players embark on epic interplanetary adventures, progressing their Heroes across multiple games.
+      </p>
+  </div>
+
+  <div class="new_review-user">
+      <div class="new_review-user-header">
+          <div class="new_review-user-name">John Philips</div>
+          <!-- <div class="new_review-user-date">20 Jan 2025</div> -->
+      </div>
+      <div class="new_review-user-stars">★★★★☆<span class="new_review-star-empty"></span> <span class="new_review-user-date">18 Jan 2025</span></div>
+      <p class="new_review-user-content">
+          Sidus Heroes takes Play-to-Earn gaming to a whole new level with its expansive Web3 metaverse. Players embark on epic interplanetary adventures, progressing their Heroes across multiple games.
+      </p>
+  </div>
+
+  <div class="new_review-view-all">
+      <a href="#">See All Reviews</a>
+  </div>
+</div>
+<!-- ========= review rating section  end=====================  -->
 
 
 
             <!-- ===== awards section =====  -->
-            <section class="partners_cards awards lg:mb-[20px] ">
-              <h1>Awards & Recognition</h1>
+            <section class="partners_cards awards lg:mb-[20px] gradient_bg ">
+              <h1 class="gradient-text">Awards & Recognition</h1>
+              <h3>Sidus Heroes is a pioneering, Web3, space-based gaming metaverse with epic lore</h3>
 
               <div class="logo-showcase awards">
                 <div class="logo-item">
@@ -609,10 +793,11 @@
 
 
             <!-- ============ version update section =========  -->
-            <div class="version_update">
-              <h1 class="version_update_title">
+            <div class="version_update gradient_bg">
+              <h1 class="version_update_title gradient-text">
                 What’s new in the version
               </h1>
+              <h3>Sidus Heroes is a pioneering, Web3, space-based gaming metaverse with epic lore</h3>
 
               <ul class="update_list">
                 <li>Gameplay Bug Fixes</li>
@@ -627,8 +812,8 @@
 
 
             <!-- =============== additional information section ==========  -->
-            <div class="token_stats-container">
-              <h1 class="token_stats-title">Additional Information</h1>
+            <div class="token_stats-container gradient_bg">
+              <h1 class="token_stats-title gradient-text ">Additional Information</h1>
 
               <div class="token_stats-grid">
                 <!-- Market Cap -->
@@ -706,7 +891,7 @@
 
             <!-- ===================faq tab section ====  -->
             <!-- FAQ Tabs Container -->
-            <div class="faq_tab-container">
+            <div class="faq_tab-container gradient_bg">
               <!-- Tab Navigation -->
               <div class="faq_tab-navigation">
                 <div class="faq_tab-background"></div>
@@ -721,7 +906,8 @@
               <div class="faq_tab-content-container">
                 <!-- FAQ Content -->
                 <div id="faqs" class="faq_tab-content">
-                  <h2 class="faq_tab-title">Frequently Asked Questions</h2>
+                  <h2 class="faq_tab-title gradient-text">Frequently Asked Questions</h2>
+                  <h3>Sidus Heroes is a pioneering, Web3, space-based gaming metaverse with epic lore</h3>
                   <div id="faq-accordion-placeholder">
                     <div class="faq-item active">
                       <div class="faq-question">
@@ -841,7 +1027,7 @@
 
                 <!-- Benefits Content -->
                 <div id="benefits" class="faq_tab-content">
-                  <h2 class="faq_tab-title">Benefits</h2>
+                  <h2 class="faq_tab-title gradient-text">Benefits</h2>
                   <div>
                     <!-- Benefits content will go here -->
 
@@ -855,7 +1041,7 @@
 
                 <!-- News Content -->
                 <div id="news" class="faq_tab-content">
-                  <h2 class="faq_tab-title">News and Media</h2>
+                  <h2 class="faq_tab-title gradient-text">News and Media</h2>
                   <div>
                     <!-- News content will go here -->
                     <div>
@@ -870,7 +1056,7 @@
 
                 <!-- Press Release Content -->
                 <div id="press" class="faq_tab-content">
-                  <h2 class="faq_tab-title">Press Release</h2>
+                  <h2 class="faq_tab-title gradient-text">Press Release</h2>
                   <div>
                     <!-- Press release content will go here -->
                     <div class="">
@@ -885,7 +1071,7 @@
 
                 <!-- Related Article Content -->
                 <div id="related" class="faq_tab-content active">
-                  <h2 class="faq_tab-title">Related Article</h2>
+                  <h2 class="faq_tab-title gradient-text">Related Article</h2>
                   <div>
                     <!-- Related article content will go here -->
                     <div class="">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta provident error soluta
@@ -902,9 +1088,10 @@
 
 
             <!-- ========== subscription banner section =======  -->
-            <section class="subscribe_sec">
+            <section class="subscribe_sec gradient_bg">
               <div class="subscribe_sec-container">
-                <h2 class="subscribe_sec-title">Subscribe to Latest Offer & Updates</h2>
+                <h2 class="subscribe_sec-title gradient-text">Subscribe to Latest Offer & Updates</h2>
+                <h3>Sidus Heroes is a pioneering, Web3, space-based gaming metaverse with epic lore</h3>
                 <form class="subscribe_sec-form">
                   <input type="email" class="subscribe_sec-input" placeholder="Enter your Email Address" required>
                   <button type="submit" class="subscribe_sec-button">Subscribe</button>
@@ -929,7 +1116,7 @@
           <div class="right-column">
             <div class="sticky-container">
               <div class="section">
-                <h2 class="recommendation-title">You may also like</h2>
+                <!-- <h2 class="recommendation-title">You may also like</h2> -->
                 <!-- <div class="recommendation-card">
                 <div class="recommendation-img">
                   <img src="./assets/images/pancake-swap.png" alt="Pancakeswap">
@@ -943,14 +1130,14 @@
                   <button class="explore-small">Explore</button>
                 </div>
               </div> -->
-                <div class="app-card aave-card col_end">
-                  <div class="logo-container aave-bg">
-                    <img src="./assets/images/pancake-swap.png" alt="Aave" class="">
+                <div class="app-card aave-card col_end gradient_bg lg:py-2 lg:pt-8 lg:px-4">
+                  <div class="logo-container aave-bg rounded-[5px] overflow-hidden">
+                    <img src="./assets/images/new-side-img.png" alt="Aave" class="">
                   </div>
                   <div class="card-content">
                     <h2 class="card-title">Saros</h2>
                     <div class="card-subtitle">DEFI · WALLET</div>
-                    <p class="card-description">Open-source non-custodial liquidity protocol.</p>
+                    <!-- <p class="card-description">Open-source non-custodial liquidity protocol.</p> -->
                     <div class="ratings-container">
                       <div class="star-rating">
                         <span>★</span>
@@ -993,7 +1180,7 @@
               <div class="section">
                 <h2 class="also-view-title">People Also View</h2>
 
-                <div class="also_view_cards_div">
+                <div class="also_view_cards_div gradient_bg">
 
                   <div class="also-view-card">
                     <div class="also-view_wrapper">
@@ -1321,22 +1508,70 @@
 
   <!-- Initialize Swiper -->
   <script>
-    var swiper = new Swiper(".mySwiper", {
-      slidesPerView: 1,
-      centeredSlides: true,
-      spaceBetween: 0,
-      loop: true,
-      pagination: {
-        el: ".swiper-pagination",
-        type: "fraction",
-      },
-      navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-      },
+    document.addEventListener('DOMContentLoaded', function() {
+      const swiper = new Swiper('#app_swiper', {
+        // Enable loop mode
+        loop: true,
+        
+        // Important: Start aligned to the left with peek on right
+        slidesOffsetBefore: 0,
+        slidesOffsetAfter: 0,
+        
+        // Set up slide view to have next slide peek in
+        slidesPerView: 'auto',
+        centeredSlides: false, // This is key - not centered
+        spaceBetween: 0,
+        
+        // Configure the default slide to take most of the width
+        // and the peek to take a small portion
+        initialSlide: 0,
+        
+        // Effect for smooth transitions
+        effect: 'slide',
+        
+        // Enable smooth autoplay
+        // autoplay: {
+        //   delay: 5000,
+        //   disableOnInteraction: false,
+        // },
+        
+        // Navigation arrows
+        navigation: {
+          nextEl: '.app_swiper-button-next',
+          prevEl: '.app_swiper-button-prev',
+        },
+        
+        // Pagination dots
+        pagination: {
+          el: '.app_swiper-pagination',
+          clickable: true,
+        },
+        
+        // Responsive breakpoints
+        breakpoints: {
+          // When window width is >= 320px
+          320: {
+            slidesPerView: 1.15,
+            spaceBetween: 10
+          },
+          // When window width is >= 480px
+          480: {
+            slidesPerView: 1.15,
+            spaceBetween: 15
+          },
+          // When window width is >= 768px
+          768: {
+            slidesPerView: 1.15,
+            spaceBetween: 20
+          },
+          // When window width is >= 1024px
+          1024: {
+            slidesPerView: 1.15,
+            spaceBetween: 20
+          }
+        }
+      });
     });
-
-
   </script>
 </body>
 
