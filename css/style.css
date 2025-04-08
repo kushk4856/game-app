@@ -2305,7 +2305,7 @@ background: #33424E;
  .app_page .also-view-title {
     font-size: 24px;
     font-weight: 700;
-    margin-bottom: 15px;
+    /* margin-bottom: 15px; */
   }
   
  .app_page .also-view-card {
