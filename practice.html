@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sidus Heroes Gallery</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <title>Tokens/Coins Supported</title>
   <style>
+    /* Reset and Base Styles */
     * {
       margin: 0;
       padding: 0;
@@ -14,340 +14,147 @@
     
     body {
       font-family: 'Arial', sans-serif;
-      background-color: #0a1528;
-      color: white;
+      background-color: #0c0c16;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    
+    /* Main Container */
+    .side_tokens-container {
+      width: 100%;
+      max-width: 380px;
+      background: linear-gradient(145deg, rgba(17, 17, 34, 0.9), rgba(26, 26, 46, 0.9));
+      border-radius: 20px;
+      border: 2px solid #2a2a4a;
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
       padding: 20px;
     }
     
-    .app_swiper-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 30px;
-      border-radius: 16px;
-      background-color: #0a1528;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-      border: 1px solid #1b304d;
+    /* Header Section */
+    .side_tokens-header {
+      padding-bottom: 15px;
+      margin-bottom: 10px;
     }
     
-    .app_swiper-title {
-      color: #4e7cf5;
-      font-size: 28px;
+    .side_tokens-title {
+      color: #3b9aff;
+      font-size: 22px;
+      font-weight: bold;
       margin-bottom: 5px;
-      font-weight: bold;
     }
     
-    .app_swiper-subtitle {
-      color: #8a9bbd;
-      font-size: 16px;
-      margin-bottom: 30px;
+    .side_tokens-subtitle {
+      color: #ff7bdd;
+      font-size: 14px;
+      opacity: 0.8;
     }
     
-    .app_swiper-wrapper {
-      position: relative;
-      padding: 0;
-      overflow: hidden;
+    /* Token Grid */
+    .side_tokens-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
     }
     
-    .app_swiper {
-      width: 100%;
-      border-radius: 10px;
-      overflow: visible;
-      position: relative;
-    }
-    
-    .swiper-wrapper {
-      align-items: center;
-    }
-    
-    .swiper-slide {
-      text-align: center;
-      background: transparent;
+    /* Token Card */
+    .side_tokens-card {
+      aspect-ratio: 1/1;
+      background-color: rgba(14, 14, 28, 0.95);
+      border-radius: 15px;
+      border: 1px solid #2a2a4a;
       display: flex;
       justify-content: center;
       align-items: center;
-      overflow: hidden;
-      border-radius: 10px;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-      position: relative;
-    }
-    
-    .swiper-slide img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-    
-    /* Blur overlay for next slide */
-    .swiper-slide:not(.swiper-slide-active) {
-      position: relative;
-    }
-    
-    .swiper-slide:not(.swiper-slide-active)::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(10, 21, 40, 0.5);
-      backdrop-filter: blur(3px);
-      -webkit-backdrop-filter: blur(3px);
-      z-index: 1;
       transition: all 0.3s ease;
+      cursor: pointer;
     }
     
-    .app_swiper-button-next,
-    .app_swiper-button-prev {
-      width: 50px;
-      height: 50px;
-      background-color: rgba(78, 124, 245, 0.8);
-      border-radius: 50%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: white;
-      transition: all 0.3s ease;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-      z-index: 10;
+    .side_tokens-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(59, 154, 255, 0.3);
     }
     
-    .app_swiper-button-next:hover,
-    .app_swiper-button-prev:hover {
-      background-color: rgba(78, 124, 245, 1);
+    /* Token Icons */
+    .side_tokens-icon {
+      width: 50%;
+      height: 50%;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
     }
     
-    .app_swiper-button-next:after,
-    .app_swiper-button-prev:after {
-      font-size: 20px;
-      font-weight: bold;
+    .side_tokens-icon-btc {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='url(%23btcGradient)' d='M12,2C6.5,2,2,6.5,2,12s4.5,10,10,10s10-4.5,10-10S17.5,2,12,2z M16.5,11.5c-0.2,1.3-1.3,1.7-2.4,1.9 V16h-1.4v-2.5c-0.4,0-0.7,0-1.1,0V16H10v-2.5H8V12h0.7c0.7,0,0.8,0,0.8-0.7V8.7c0-0.6-0.2-0.7-0.9-0.7c-0.3,0-0.5,0-0.7,0l0-1.5h2 v-2.5h1.4V6c0.4,0,0.8,0,1.1,0V4h1.4v2.1c0.9,0.1,1.9,0.3,2.6,1C17.1,7.8,16.7,10.2,16.5,11.5z'/%3E%3Cdefs%3E%3ClinearGradient id='btcGradient' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%237B5AFF;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%233B9AFF;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3C/svg%3E");
     }
     
-    .app_swiper-pagination {
-      position: absolute;
-      bottom: -30px !important;
-      left: 0;
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      gap: 8px;
+    .side_tokens-icon-eth {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='url(%23ethGradient)' d='M12,1.75L5.5,12.5L12,16l6.5-3.5L12,1.75z M5.5,13.5L12,22.25L18.5,13.5L12,17L5.5,13.5z'/%3E%3Cdefs%3E%3ClinearGradient id='ethGradient' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23A864FF;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%237000FF;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3C/svg%3E");
     }
     
-    .app_swiper-pagination .swiper-pagination-bullet {
-      width: 10px;
-      height: 10px;
-      background-color: #4e7cf5;
-      opacity: 0.5;
-      margin: 0 5px;
+    .side_tokens-icon-tron {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='url(%23tronGradient)' d='M12.5,2L3,8.5l9.5,5l9.5-5L12.5,2z M12.5,14.5l-4.5-2.5L4,16l8.5,6L21,16l-4-4L12.5,14.5z'/%3E%3Cdefs%3E%3ClinearGradient id='tronGradient' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%239370FF;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%235F3AFF;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3C/svg%3E");
     }
     
-    .app_swiper-pagination .swiper-pagination-bullet-active {
-      opacity: 1;
-      background-color: #4e7cf5;
-    }
-    
-    .play-button-overlay {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 60px;
-      height: 60px;
-      background-color: rgba(255, 255, 255, 0.2);
-      border-radius: 50%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      pointer-events: none;
-      z-index: 2;
-    }
-    
-    .play-button-overlay:before {
-      content: '';
-      border-style: solid;
-      border-width: 10px 0 10px 20px;
-      border-color: transparent transparent transparent white;
-      margin-left: 5px;
-    }
-    
-    .logo-overlay {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 70%;
-      pointer-events: none;
-      z-index: 1;
-    }
-    
-    @media (max-width: 768px) {
-      .app_swiper-container {
-        padding: 20px;
-      }
-      
-      .app_swiper-title {
-        font-size: 24px;
-      }
-      
-      .app_swiper-button-next,
-      .app_swiper-button-prev {
-        width: 40px;
-        height: 40px;
-      }
-      
-      .play-button-overlay {
-        width: 50px;
-        height: 50px;
-      }
-    }
-    
-    @media (max-width: 480px) {
-      .app_swiper-container {
+    /* Responsive Adjustments */
+    @media screen and (max-width: 480px) {
+      .side_tokens-container {
+        max-width: 90%;
         padding: 15px;
       }
       
-      .app_swiper-title {
-        font-size: 20px;
+      .side_tokens-grid {
+        gap: 10px;
       }
       
-      .app_swiper-subtitle {
-        font-size: 14px;
-        margin-bottom: 20px;
+      .side_tokens-title {
+        font-size: 18px;
       }
       
-      .app_swiper-button-next,
-      .app_swiper-button-prev {
-        width: 36px;
-        height: 36px;
+      .side_tokens-subtitle {
+        font-size: 12px;
+      }
+    }
+    
+    @media screen and (max-width: 320px) {
+      .side_tokens-container {
+        padding: 10px;
       }
       
-      .app_swiper-button-next:after,
-      .app_swiper-button-prev:after {
-        font-size: 16px;
-      }
-      
-      .play-button-overlay {
-        width: 40px;
-        height: 40px;
+      .side_tokens-grid {
+        gap: 8px;
       }
     }
   </style>
 </head>
 <body>
-  <div class="app_swiper-container">
-    <h1 class="app_swiper-title">SIDUS HEROES GALLERY</h1>
-    <p class="app_swiper-subtitle">Some of the Game Screenshots</p>
-    
-    <div class="app_swiper-wrapper">
-      <div id="app_swiper" class="app_swiper swiper">
-        <div class="swiper-wrapper">
-          <!-- Main slide with logo and play button -->
-          <div class="swiper-slide">
-            <img src="/assets/images/sidus-heroes.png" alt="Sidus Heroes Main">
-            <div class="logo-overlay">
-              <img src="/api/placeholder/400/80" alt="Sidus Heroes Logo" style="width: 100%; height: auto;">
-            </div>
-            <div class="play-button-overlay"></div>
-          </div>
-          
-          <!-- Game character slides -->
-          <div class="swiper-slide">
-            <img src="/assets/images/sidus-heroes.png" alt="Game Character 1">
-          </div>
-          
-          <div class="swiper-slide">
-            <img src="/assets/images/sidus-heroes.png" alt="Game Character 2">
-          </div>
-          
-          <div class="swiper-slide">
-            <img src="/assets/images/sidus-heroes.png" alt="Game Character 3">
-          </div>
-          
-          <div class="swiper-slide">
-            <img src="/api/placeholder/900/400" alt="Game Character 4">
-          </div>
-          
-          <div class="swiper-slide">
-            <img src="/api/placeholder/900/400" alt="Game Scene">
-          </div>
-        </div>
-        
-        <!-- Navigation buttons -->
-        <div class="app_swiper-button-next swiper-button-next"></div>
-        <div class="app_swiper-button-prev swiper-button-prev"></div>
-        
-        <!-- Pagination dots -->
-        <div class="app_swiper-pagination swiper-pagination"></div>
+  <div class="side_tokens-container">
+    <div class="side_tokens-header">
+      <h2 class="side_tokens-title">Tokens/Coins Supported</h2>
+      <p class="side_tokens-subtitle">You might also like</p>
+    </div>
+    <div class="side_tokens-grid">
+      <div class="side_tokens-card">
+        <div class="side_tokens-icon side_tokens-icon-btc"></div>
+      </div>
+      <div class="side_tokens-card">
+        <div class="side_tokens-icon side_tokens-icon-eth"></div>
+      </div>
+      <div class="side_tokens-card">
+        <div class="side_tokens-icon side_tokens-icon-tron"></div>
+      </div>
+      <div class="side_tokens-card">
+        <div class="side_tokens-icon side_tokens-icon-tron"></div>
+      </div>
+      <div class="side_tokens-card">
+        <div class="side_tokens-icon side_tokens-icon-eth"></div>
+      </div>
+      <div class="side_tokens-card">
+        <div class="side_tokens-icon side_tokens-icon-btc"></div>
       </div>
     </div>
   </div>
-  
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const swiper = new Swiper('#app_swiper', {
-        // Enable loop mode
-        loop: true,
-        
-        // Important: Start aligned to the left with peek on right
-        slidesOffsetBefore: 0,
-        slidesOffsetAfter: 0,
-        
-        // Set up slide view to have next slide peek in
-        slidesPerView: 'auto',
-        centeredSlides: false, // This is key - not centered
-        spaceBetween: 0,
-        
-        // Configure the default slide to take most of the width
-        // and the peek to take a small portion
-        initialSlide: 0,
-        
-        // Effect for smooth transitions
-        effect: 'slide',
-        
-        // Enable smooth autoplay
-        // autoplay: {
-        //   delay: 5000,
-        //   disableOnInteraction: false,
-        // },
-        
-        // Navigation arrows
-        navigation: {
-          nextEl: '.app_swiper-button-next',
-          prevEl: '.app_swiper-button-prev',
-        },
-        
-        // Pagination dots
-        pagination: {
-          el: '.app_swiper-pagination',
-          clickable: true,
-        },
-        
-        // Responsive breakpoints
-        breakpoints: {
-          // When window width is >= 320px
-          320: {
-            slidesPerView: 1.15,
-            spaceBetween: 10
-          },
-          // When window width is >= 480px
-          480: {
-            slidesPerView: 1.15,
-            spaceBetween: 15
-          },
-          // When window width is >= 768px
-          768: {
-            slidesPerView: 1.15,
-            spaceBetween: 20
-          },
-          // When window width is >= 1024px
-          1024: {
-            slidesPerView: 1.15,
-            spaceBetween: 20
-          }
-        }
-      });
-    });
-  </script>
 </body>
 </html>

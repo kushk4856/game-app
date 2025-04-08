@@ -3407,6 +3407,16 @@ background-clip: text;
     font-weight: 500;
 }
 
+.side_heading {
+  font-weight: 700;
+  font-size: 23px;
+}
+.side_sub_heading, .side_tokens-subtitle {
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  color: #1AAFE2 !important;
+}
+
 .new_review-view-all a:hover {
     text-decoration: underline;
 }
@@ -3911,6 +3921,111 @@ textarea.app_listing-input {
 }
 
 
+/* ================================== side tokens section ============  */
+.side_tokens-container {
+  width: 100%;
+  /* max-width: 380px; */
+  /* background: linear-gradient(145deg, rgba(17, 17, 34, 0.9), rgba(26, 26, 46, 0.9)); */
+  border-radius: 20px;
+  /* border: 2px solid #2a2a4a; */
+  overflow: hidden;
+  /* box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5); */
+  padding: 15px;
+}
+
+/* Header Section */
+.side_tokens-header {
+  /* padding-bottom: 15px; */
+  margin-bottom: 10px;
+}
+
+.side_tokens-title {
+  /* color: #3b9aff; */
+  font-size: 22px;
+  font-weight: bold;
+  /* margin-bottom: 5px; */
+}
+
+
+
+/* Token Grid */
+.side_tokens-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+/* Token Card */
+.side_tokens-card {
+  aspect-ratio: 1/1;
+  background-color: transparent;
+  border-radius: 15px;
+  border: 2px solid #18567F;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.side_tokens-card:hover {
+  transform: translateY(-5px);
+  /* box-shadow: 0 5px 15px rgba(59, 154, 255, 0.3); */
+}
+
+/* Token Icons */
+.side_tokens-icon {
+  width: 49px;
+  height: 44px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.side_tokens-icon-btc {
+  background-image: url("../assets/icons/bitcoin.png");
+}
+
+.side_tokens-icon-eth {
+  background-image: url("../assets/icons/token-2.png");
+}
+
+.side_tokens-icon-tron {
+  background-image: url("../assets/icons/token-3.png");
+}
+
+/* Responsive Adjustments */
+@media screen and (max-width: 480px) {
+  .side_tokens-container {
+    /* max-width: 90%; */
+    padding: 15px;
+  }
+  
+  .side_tokens-grid {
+    gap: 10px;
+  }
+  
+  .side_tokens-title {
+    font-size: 18px;
+  }
+  
+  .side_tokens-subtitle {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .side_tokens-container {
+    padding: 10px;
+  }
+  
+  .side_tokens-grid {
+    gap: 8px;
+  }
+}
+/* ================================== side tokens section end ============  */
+
+
 
 
 /* ================================================= app page end ================================  */
@@ -3920,6 +4035,16 @@ textarea.app_listing-input {
   .swiper-slide {
     border-radius: 5px;
   }
+
+
+
+  @media (max-width: 1300px){
+    .side_heading {
+     font-size: 22px;
+    }
+  }
+
+
   
   @media (max-width: 900px) {
     .container {
@@ -4101,4 +4226,11 @@ textarea.app_listing-input {
     .also-view-card .star-rating {
         color: #FEC400;
     }
+}
+
+
+@media (min-width: 1445px){
+  .aave-card .logo-container{
+    height: 161px;
+  }
 }
