@@ -1495,8 +1495,8 @@
       const ctx = document.getElementById('token_chart-canvas').getContext('2d');
 
       // Sample data based on the image
-      const labels = ['7:30 PM', '8:00 PM', '8:30 PM', '9:00 PM'];
-      const upperBandData = [40, 20, 50, 30, 20];
+      const labels = ['7:30 PM', '8:00 PM', '8:30 PM', '9:00 PM', '9:00 PM'];
+      const upperBandData = [70, 40, 70, 50, 60, 55];
 
       // Create gradient for background
       function createGradient(ctx) {
@@ -1565,7 +1565,8 @@
               ticks: {
                 color: '#8b949e',
                 font: {
-                  size: 10
+                  size: 12,
+                  
                 }
               }
             },

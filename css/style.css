@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
 
 html {
     scroll-behavior: smooth;
@@ -24,12 +25,14 @@ body {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     text-transform: uppercase;
+    font-family: Manrope;
   }
 
 .gradient_bg {
     border-radius: 23px !important;
 border: 3px solid #18567F !important;
 background: linear-gradient(180deg, #191027 64.9%, #2A1249 100%) !important;
+font-family: Manrope;
 }
 
 .mobile-menu-active {
@@ -196,8 +199,8 @@ font-size: 14px;
 }
 
 .app-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    /* transform: translateY(-5px); */
+    /* box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3); */
 }
 
 .aave-card {
@@ -1942,6 +1945,7 @@ background: #33424E;
     display: flex;
     align-items: center;
     gap: 24px;
+    font-family: Montserrat;
     
   }
   
@@ -1968,8 +1972,11 @@ background: #33424E;
   }
   
  .app_section .app-info h1 {
-    font-size: 30px;
-    margin-bottom: 10px;
+    font-size: 35px;
+    /* margin-bottom: 10px; */
+    font-family: Montserrat;
+    color: #1AAFE2;
+    font-weight: 700;
   }
   
   .app_section .app-type {
@@ -2613,10 +2620,10 @@ margin-left: 20px;
     max-width: 290px;
   }
   
-  .alternate_game-card:hover {
+  /* .alternate_game-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-  }
+  } */
   
   .alternate_game-logo {
     width: 90px;
@@ -4170,7 +4177,7 @@ textarea.app_listing-input {
 }
 
 .side_tokens-card:hover {
-  transform: translateY(-5px);
+  /* transform: translateY(-5px); */
   /* box-shadow: 0 5px 15px rgba(59, 154, 255, 0.3); */
 }
 
