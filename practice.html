@@ -1,160 +1,277 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tokens/Coins Supported</title>
-  <style>
-    /* Reset and Base Styles */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    
-    body {
-      font-family: 'Arial', sans-serif;
-      background-color: #0c0c16;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-    }
-    
-    /* Main Container */
-    .side_tokens-container {
-      width: 100%;
-      max-width: 380px;
-      background: linear-gradient(145deg, rgba(17, 17, 34, 0.9), rgba(26, 26, 46, 0.9));
-      border-radius: 20px;
-      border: 2px solid #2a2a4a;
-      overflow: hidden;
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
-      padding: 20px;
-    }
-    
-    /* Header Section */
-    .side_tokens-header {
-      padding-bottom: 15px;
-      margin-bottom: 10px;
-    }
-    
-    .side_tokens-title {
-      color: #3b9aff;
-      font-size: 22px;
-      font-weight: bold;
-      margin-bottom: 5px;
-    }
-    
-    .side_tokens-subtitle {
-      color: #ff7bdd;
-      font-size: 14px;
-      opacity: 0.8;
-    }
-    
-    /* Token Grid */
-    .side_tokens-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 15px;
-    }
-    
-    /* Token Card */
-    .side_tokens-card {
-      aspect-ratio: 1/1;
-      background-color: rgba(14, 14, 28, 0.95);
-      border-radius: 15px;
-      border: 1px solid #2a2a4a;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      transition: all 0.3s ease;
-      cursor: pointer;
-    }
-    
-    .side_tokens-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 5px 15px rgba(59, 154, 255, 0.3);
-    }
-    
-    /* Token Icons */
-    .side_tokens-icon {
-      width: 50%;
-      height: 50%;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: contain;
-    }
-    
-    .side_tokens-icon-btc {
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='url(%23btcGradient)' d='M12,2C6.5,2,2,6.5,2,12s4.5,10,10,10s10-4.5,10-10S17.5,2,12,2z M16.5,11.5c-0.2,1.3-1.3,1.7-2.4,1.9 V16h-1.4v-2.5c-0.4,0-0.7,0-1.1,0V16H10v-2.5H8V12h0.7c0.7,0,0.8,0,0.8-0.7V8.7c0-0.6-0.2-0.7-0.9-0.7c-0.3,0-0.5,0-0.7,0l0-1.5h2 v-2.5h1.4V6c0.4,0,0.8,0,1.1,0V4h1.4v2.1c0.9,0.1,1.9,0.3,2.6,1C17.1,7.8,16.7,10.2,16.5,11.5z'/%3E%3Cdefs%3E%3ClinearGradient id='btcGradient' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%237B5AFF;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%233B9AFF;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3C/svg%3E");
-    }
-    
-    .side_tokens-icon-eth {
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='url(%23ethGradient)' d='M12,1.75L5.5,12.5L12,16l6.5-3.5L12,1.75z M5.5,13.5L12,22.25L18.5,13.5L12,17L5.5,13.5z'/%3E%3Cdefs%3E%3ClinearGradient id='ethGradient' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23A864FF;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%237000FF;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3C/svg%3E");
-    }
-    
-    .side_tokens-icon-tron {
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='url(%23tronGradient)' d='M12.5,2L3,8.5l9.5,5l9.5-5L12.5,2z M12.5,14.5l-4.5-2.5L4,16l8.5,6L21,16l-4-4L12.5,14.5z'/%3E%3Cdefs%3E%3ClinearGradient id='tronGradient' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%239370FF;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%235F3AFF;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3C/svg%3E");
-    }
-    
-    /* Responsive Adjustments */
-    @media screen and (max-width: 480px) {
-      .side_tokens-container {
-        max-width: 90%;
-        padding: 15px;
-      }
-      
-      .side_tokens-grid {
-        gap: 10px;
-      }
-      
-      .side_tokens-title {
-        font-size: 18px;
-      }
-      
-      .side_tokens-subtitle {
-        font-size: 12px;
-      }
-    }
-    
-    @media screen and (max-width: 320px) {
-      .side_tokens-container {
-        padding: 10px;
-      }
-      
-      .side_tokens-grid {
-        gap: 8px;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gaming Offers & Promotions</title>
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        
+        body {
+            background-color: #0a1020;
+            color: #fff;
+            padding: 20px;
+        }
+        
+        /* Main Container */
+        .new_offer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* Header */
+        .new_offer-header {
+            margin-bottom: 20px;
+            padding: 10px 0;
+        }
+        
+        .new_offer-title {
+            color: #8be9fd;
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+        
+        .new_offer-subtitle {
+            color: #6fb6c9;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+        
+        /* Cards Container */
+        .new_offer-cards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        
+        /* Card */
+        .new_offer-card {
+            background: linear-gradient(to bottom, rgba(33, 45, 80, 0.8), rgba(22, 30, 58, 0.9));
+            border-radius: 12px;
+            overflow: hidden;
+            width: 100%;
+            max-width: 360px;
+            border: 1px solid #364476;
+            position: relative;
+        }
+        
+        /* Pool Type Label */
+        .new_offer-pool-label {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            padding: 5px 12px;
+            font-size: 14px;
+            border-radius: 6px;
+            font-weight: bold;
+            color: white;
+        }
+        
+        .new_offer-pool-prize {
+            background-color: #e94057;
+        }
+        
+        .new_offer-pool-polygon {
+            background-color: #8247e5;
+        }
+        
+        .new_offer-pool-nft {
+            background-color: #3498db;
+        }
+        
+        /* Card Image */
+        .new_offer-card-image {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        /* Card Content */
+        .new_offer-card-content {
+            padding: 15px;
+        }
+        
+        .new_offer-prize {
+            font-size: 20px;
+            font-weight: bold;
+            color: #8be9fd;
+            margin-bottom: 12px;
+        }
+        
+        .new_offer-stats {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+            color: #b8c2cc;
+            font-size: 14px;
+        }
+        
+        .new_offer-stat {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .new_offer-stat-icon {
+            opacity: 0.8;
+            width: 16px;
+            height: 16px;
+        }
+        
+        .new_offer-description {
+            margin-bottom: 15px;
+            font-size: 14px;
+            line-height: 1.5;
+            color: #b8c2cc;
+        }
+        
+        /* Card Actions */
+        .new_offer-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .new_offer-btn {
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: bold;
+            text-decoration: none;
+            text-align: center;
+        }
+        
+        .new_offer-btn-free {
+            background-color: transparent;
+            border: 1px solid #3cb35a;
+            color: #3cb35a;
+        }
+        
+        .new_offer-btn-enter {
+            background-color: #ff9f43;
+            color: #0a1020;
+            border: none;
+        }
+        
+        /* Responsive Breakpoints */
+        @media (max-width: 767px) {
+            .new_offer-cards {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .new_offer-card {
+                max-width: 100%;
+            }
+        }
+        
+        @media (min-width: 768px) and (max-width: 1023px) {
+            .new_offer-card {
+                max-width: calc(50% - 10px);
+            }
+        }
+    </style>
 </head>
 <body>
-  <div class="side_tokens-container">
-    <div class="side_tokens-header">
-      <h2 class="side_tokens-title">Tokens/Coins Supported</h2>
-      <p class="side_tokens-subtitle">You might also like</p>
+    <div class="new_offer-container">
+        <header class="new_offer-header">
+            <h1 class="new_offer-title">OFFER & PROMOTION</h1>
+            <p class="new_offer-subtitle">Sidus Heroes is a pioneering, Web3, space-based gaming metaverse with epic lore</p>
+        </header>
+        
+        <div class="new_offer-cards">
+            <!-- Card 1 -->
+            <div class="new_offer-card">
+                <span class="new_offer-pool-label new_offer-pool-prize">Prize Pool</span>
+                <img src="./assets/images/offer-img-1.png" alt="Prize Pool Heroes" class="new_offer-card-image">
+                <div class="new_offer-card-content">
+                    <h2 class="new_offer-prize">$35,000 Prize Pool</h2>
+                    <div class="new_offer-stats">
+                        <div class="new_offer-stat">
+                            <svg class="new_offer-stat-icon" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/>
+                            </svg>
+                            14 Teams
+                        </div>
+                        <div class="new_offer-stat">
+                            <svg class="new_offer-stat-icon" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
+                            </svg>
+                            10 Weeks
+                        </div>
+                    </div>
+                    <p class="new_offer-description">SIDUS HEROES is a pioneering, Web3, space-based gaming metaverse with epic lore, tradable tokens.</p>
+                    <div class="new_offer-actions">
+                        <a href="#" class="new_offer-btn new_offer-btn-free">Free 2 Play</a>
+                        <a href="#" class="new_offer-btn new_offer-btn-enter">Enter Now</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Card 2 -->
+            <div class="new_offer-card">
+                <span class="new_offer-pool-label new_offer-pool-polygon">Polygon Pool</span>
+                <img src="./assets/images/offer-img-1.png" alt="Polygon Pool Heroes" class="new_offer-card-image">
+                <div class="new_offer-card-content">
+                    <h2 class="new_offer-prize">$35,000 Prize Pool</h2>
+                    <div class="new_offer-stats">
+                        <div class="new_offer-stat">
+                            <svg class="new_offer-stat-icon" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/>
+                            </svg>
+                            8 Teams
+                        </div>
+                        <div class="new_offer-stat">
+                            <svg class="new_offer-stat-icon" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
+                            </svg>
+                            10 Weeks
+                        </div>
+                    </div>
+                    <p class="new_offer-description">SIDUS HEROES is a pioneering, Web3, space-based gaming metaverse with epic lore, tradable tokens.</p>
+                    <div class="new_offer-actions">
+                        <a href="#" class="new_offer-btn new_offer-btn-free">Free 2 Play</a>
+                        <a href="#" class="new_offer-btn new_offer-btn-enter">Enter Now</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Card 3 -->
+            <div class="new_offer-card">
+                <span class="new_offer-pool-label new_offer-pool-nft">NFT Pool</span>
+                <img src="./assets/images/offer-img-1.png" alt="NFT Pool Heroes" class="new_offer-card-image">
+                <div class="new_offer-card-content">
+                    <h2 class="new_offer-prize">$35,000 Prize Pool</h2>
+                    <div class="new_offer-stats">
+                        <div class="new_offer-stat">
+                            <svg class="new_offer-stat-icon" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/>
+                            </svg>
+                            36 Teams
+                        </div>
+                        <div class="new_offer-stat">
+                            <svg class="new_offer-stat-icon" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
+                            </svg>
+                            10 Weeks
+                        </div>
+                    </div>
+                    <p class="new_offer-description">SIDUS HEROES is a pioneering, Web3, space-based gaming metaverse with epic lore, tradable tokens.</p>
+                    <div class="new_offer-actions">
+                        <a href="#" class="new_offer-btn new_offer-btn-free">Free 2 Play</a>
+                        <a href="#" class="new_offer-btn new_offer-btn-enter">Enter Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="side_tokens-grid">
-      <div class="side_tokens-card">
-        <div class="side_tokens-icon side_tokens-icon-btc"></div>
-      </div>
-      <div class="side_tokens-card">
-        <div class="side_tokens-icon side_tokens-icon-eth"></div>
-      </div>
-      <div class="side_tokens-card">
-        <div class="side_tokens-icon side_tokens-icon-tron"></div>
-      </div>
-      <div class="side_tokens-card">
-        <div class="side_tokens-icon side_tokens-icon-tron"></div>
-      </div>
-      <div class="side_tokens-card">
-        <div class="side_tokens-icon side_tokens-icon-eth"></div>
-      </div>
-      <div class="side_tokens-card">
-        <div class="side_tokens-icon side_tokens-icon-btc"></div>
-      </div>
-    </div>
-  </div>
 </body>
 </html>

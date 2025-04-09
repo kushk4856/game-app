@@ -123,6 +123,7 @@ font-size: 14px;
     position: relative;
     width: 500px;
     overflow: hidden;
+    margin-left: 0px !important;
   }
   
   .navbar-links {
@@ -1722,6 +1723,177 @@ background: #33424E;
 }
 
 
+/* ======================== new offer section =====================  */
+
+
+/* Header */
+.new_offer-header {
+  margin-bottom: 20px;
+  padding: 10px 0;
+}
+
+.new_offer-title {
+  color: #8be9fd;
+  font-size: 24px;
+  margin-bottom: 8px;
+}
+
+.new_offer-subtitle {
+  color: #6fb6c9;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+/* Cards Container */
+.new_offer-cards {
+  display: flex;
+  flex-wrap: wrap;
+  /* gap: 20px; */
+  justify-content: space-between;
+}
+
+/* Card */
+.new_offer-card {
+  /* background: linear-gradient(to bottom, rgba(33, 45, 80, 0.8), rgba(22, 30, 58, 0.9)); */
+  /* border-radius: 12px; */
+  overflow: hidden;
+  /* width: 100%; */
+  max-width: 33%;
+  /* border: 1px solid #364476; */
+  position: relative;
+  flex: 0 0 31.3%;
+}
+
+/* Pool Type Label */
+.new_offer-pool-label {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  padding: 3px 12px;
+  font-size: 10px;
+  border-radius: 2px;
+  font-weight: 600;
+  color: white;
+}
+
+.new_offer-pool-prize {
+  background-color: #B72A51;
+}
+
+.new_offer-pool-polygon {
+  background-color: #B72A51;
+}
+
+.new_offer-pool-nft {
+  background-color: #B72A51;
+}
+
+/* Card Image */
+.new_offer-card-image {
+  width: 100%;
+  /* height: 170px; */
+  object-fit: cover;
+  display: block;
+}
+
+/* Card Content */
+.new_offer-card-content {
+  padding: 15px;
+  padding-inline: 0px;
+}
+
+.new_offer-prize {
+  font-size: 16px;
+  font-weight: 700;
+  color: #08ECAB;
+  margin-bottom: 12px;
+}
+
+.new_offer-stats {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 15px;
+  color: #1AAFE2;
+  font-size: 14px;
+}
+
+.new_offer-stat {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.new_offer-stat-icon {
+  opacity: 0.8;
+  width: 16px;
+  height: 16px;
+}
+
+.new_offer-description {
+  margin-bottom: 15px;
+  font-size: 12px;
+  line-height: 1.5;
+  color: #fff;
+  font-weight: 400;
+}
+
+/* Card Actions */
+.new_offer-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.new_offer-actions span {
+  background: #fff;
+    width: 1px;
+}
+
+.new_offer-btn {
+  /* padding: 8px 12px; */
+  /* border-radius: 6px; */
+  /* padding-inline: 10px; */
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: none;
+  text-align: center;
+}
+
+.new_offer-btn-free {
+  background-color: transparent;
+  /* border: 1px solid #3cb35a; */
+  color: #3AB500;
+
+}
+
+.new_offer-btn-enter {
+  /* background-color: #ff9f43; */
+  color: #FF7700;
+  border: none;
+  border-bottom: 2px solid #FF7700;
+
+
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 767px) {
+  .new_offer-cards {
+      flex-direction: column;
+      align-items: center;
+  }
+  
+  .new_offer-card {
+      max-width: 100%;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .new_offer-card {
+      max-width: calc(50% - 10px);
+  }
+}
+
+
 
 
 /* ===========================================app page =========================  */
@@ -1747,7 +1919,7 @@ background: #33424E;
   
  .app_page .sticky-container {
     position: sticky;
-    top: 20px;
+    top: 97px;
   }
 
   /* .app_page .sticky-container .aave-card .logo-container {
@@ -1874,22 +2046,39 @@ background: #33424E;
   
   .app_section .explore-btn {
     /* background-color: var(--button-color); */
-    /* color: white; */
+    color: white;
     border: none;
-    padding: 10px 60px;
+    padding: 7px 63px;
     border-radius: 5px;
     font-weight: 600;
     cursor: pointer;
-    font-size: 18px;
+    font-size: 24px;
    margin-bottom: 10px;
+   border-radius: 50px;
+background: linear-gradient(90deg, #7F14FA 0%, #1DAAE2 93.27%);
   }
-  
+
+  .app_section .explore-btn.border_btn{
+    background: transparent;
+    border-radius: 50px;
+border: 3px solid #18567F;
+color: #1AAFE2;
+margin-left: 20px;
+  }
+
+  .side-featured-game img {
+    width: 100%;
+  }
+  .side-featured-game {
+    overflow: hidden;
+  }
  .app_page .section {
     /* padding: 20px; */
     
     border-radius: 4px;
    
     margin-bottom: 20px;
+    overflow: hidden;
   }
 
   .app_page .section h3, .app_swiper-subtitle {
@@ -2079,6 +2268,10 @@ background: #33424E;
   @media (max-width: 768px) {
     .app_swiper-container {
       padding: 20px;
+    }
+    .app_section .explore-btn.border_btn{
+      margin-left: 0;
+      margin-top: 10px;
     }
     
     .app_swiper-title {
@@ -2427,7 +2620,7 @@ background: #33424E;
   
   .alternate_game-logo {
     width: 90px;
-    height: 90px;
+    height: 83px;
     /* margin-right: 10px; */
     border-radius: 10px;
     overflow: hidden;
@@ -2727,6 +2920,7 @@ margin-bottom: 10px;
     }
     .token_chart-legend{
         top: 42px;
+        display: none;
     }
     .token_chart-container{
         padding-inline: 2px;
@@ -3309,7 +3503,7 @@ background-clip: text;
     width: 20px;
     text-align: center;
     font-size: 0.9rem;
-    color: #a9b7c6;
+    color: #4dc9ff;
 }
 
 .new_review-bar-fill {
@@ -3730,7 +3924,7 @@ margin-bottom: 24px;
 
 @media screen and (max-width: 768px) {
     .subscribe_sec-title {
-        font-size: 32px;
+        font-size: 24px;
     }
 }
 
@@ -3740,7 +3934,7 @@ margin-bottom: 24px;
     }
 
     .subscribe_sec-title {
-        font-size: 28px;
+        font-size: 24px;
         text-align: center;
     }
 
