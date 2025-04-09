@@ -1391,7 +1391,7 @@ font-size: 14px;
     
   }
 
-  @media (max-width: 1350px) and (min-width: 1200px) {
+  @media (max-width: 1440px) and (min-width: 1200px) {
     .aave-card .logo-container {
       height: 163px;
   }
@@ -1902,7 +1902,7 @@ background: #33424E;
     display: flex;
     /* max-width: 1200px; */
     margin: 0 auto;
-    padding: 20px;
+    /* padding: 20px; */
     padding-inline: 0px;
     gap: 20px;
   }
@@ -1928,7 +1928,7 @@ background: #33424E;
    */
   .app_details {
     display: flex;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     /* background-color: var(--card-bg); */
     border-radius: 12px;
     overflow: hidden;
@@ -3503,7 +3503,7 @@ background-clip: text;
     width: 20px;
     text-align: center;
     font-size: 0.9rem;
-    color: #4dc9ff;
+    color: #08ECAB;
 }
 
 .new_review-bar-fill {
@@ -3520,7 +3520,7 @@ background-clip: text;
     content: '';
     position: absolute;
     height: 100%;
-    background-color: #4dc9ff;
+    background-color: #08ECAB;
     border-radius: 4px;
 }
 
@@ -4432,6 +4432,6 @@ textarea.app_listing-input {
 
 @media (min-width: 1445px){
   .aave-card .logo-container{
-    height: 161px;
+    height: 147px;
   }
 }
