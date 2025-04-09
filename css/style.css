@@ -1339,6 +1339,7 @@ font-size: 14px;
 
 
 
+
   @media (max-width: 1440px) and (min-width: 1200px) {
     /* Your styles here */
     .app-icon {
@@ -1387,6 +1388,12 @@ font-size: 14px;
         /* padding-inline: 8px; */
     }
     
+  }
+
+  @media (max-width: 1350px) and (min-width: 1200px) {
+    .aave-card .logo-container {
+      height: 163px;
+  }
   }
 
   @media(max-width: 768px){
