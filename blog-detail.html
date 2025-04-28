@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Game App Store</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+  <script defer>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            'dark-bg': '#121212',
+            'dark-card': '#1E1E1E',
+            'primary-blue': '#00A3FF',
+            'dark-navy': '#0F172A',
+            'hot-red': '#FF3A5E'
+          }
+        }
+      }
+    }
+  </script>
+
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .swiper {
+      width: 100%;
+      height: 100%;
+    }
+
+    .swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      background: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .swiper-slide img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .swiper {
+      width: 100%;
+      height: 340px;
+      /* margin: 20px auto; */
+      overflow: hidden;
+      border-radius: 5px;
+    }
+
+    @media(max-width: 768px){
+      .swiper {
+      width: 100%;
+      height: 230px;
+      /* margin: 20px auto; */
+      overflow: hidden;
+      border-radius: 5px;
+    }
+    }
+
+    @media (max-width: 1440px) and (min-width: 1250px) {
+    .swiper {
+      height: 308px;
+    }
+  }
+  </style>
+
+</head>
+
+<body class="bg-white dark:bg-gray-800 text-black dark:text-white font-sans">
+
+  <!-- ==== go top btn ===  -->
+  <div id="goTop">
+    <a href="#nav">^</a>
+  </div>
+  <div id="app" class=" mx-auto max-w-[1650px]">
+    <!-- Top Banner -->
+    <!-- <div id="nav"
+      class="w-full bg-gray-800 text-white px-[23px] py-[13px] text-center text-sm flex items-center justify-between">
+    
+      <div class="justify-start top_bar_text"><span class="text-white   font-medium font-['Montserrat']">Play
+        </span><span class="text-red-600   font-bold font-['Montserrat']">God of War</span><span
+          class="text-white   font-medium font-['Montserrat']"> and earn exculisive prizes - </span><span
+          class="text-cyan-300  font-bold font-['Montserrat']">Play Now</span></div>
+      <div class="h-7 w-32 hidden md:block">
+        <img src="./assets/images/god-of-war-logo.png" alt="God of War" class="h-full w-full object-contain">
+      </div>
+    </div> -->
+
+
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu"
+      class="fixed left-[-100%] top-[71px] w-64 h-screen bg-white dark:bg-gray-900 p-4 transition-all duration-300 z-[99] md:hidden shadow-xl">
+
+      <div  class="relative mb-4">
+        <input type="text" placeholder="Search..."
+          class="w-full bg-gray-100 dark:bg-dark-bg rounded-lg pl-10 pr-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary-blue">
+        <i class="fas fa-search absolute left-3 top-3 text-gray-400"></i>
+      </div>
+      <div class="space-y-1">
+        <div class="sidebar-link text-lg active">
+          <img src="./assets/icons/home.svg" class="fas fa-home mr-3 h-5 w-5" alt=""> Home
+        </div>
+        <div class="sidebar-link text-lg">
+          <img src="./assets/icons/categories.svg" class="fas fa-home mr-3 h-5 w-5" alt=""> Categories
+        </div>
+        <div class="sidebar-link text-lg">
+          <img src="./assets/icons/message.svg" class="fas fa-home mr-3 h-5 w-5" alt=""> Message
+        </div>
+        <div class="sidebar-link text-lg">
+          <img src="./assets/icons/recent.svg" class="fas fa-home mr-3 h-5 w-5" alt=""> Recently Played
+        </div>
+        <div class="sidebar-link text-lg">
+          <img src="./assets/icons/admin.svg" class="fas fa-home mr-3 h-5 w-5" alt=""> Account
+        </div>
+      </div>
+    </div>
+
+    <div class="flex flex-col md:flex-row dark:bg-gray-900">
+      <!-- Sidebar -->
+      <aside
+        class="hidden border-r-2 border-gray-800 md:block w-64 h-screen bg-white dark:bg-gray-900 p-4 sticky top-[0px]">
+        <div class="space-y-6 ">
+          <div class="text-center pt-[10px] text-white text-2xl font-bold font-['Montserrat']">APP STORE</div>
+
+          <div class="relative">
+            <input type="text" placeholder="Search Apps and Games"
+              class="search_field w-full  dark:bg-gray-900 rounded-md border-2 border-gray-800  pl-10 pr-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary-blue">
+            <i class="fas fa-search absolute left-3 top-3 text-gray-400"></i>
+          </div>
+          <div class="space-y-5 border-b-2 border-gray-800">
+            <div
+              class="sidebar-link active text-white  flex items-center text-base font-medium font-['Montserrat']  py-2 px-[10px] h-10 bg-gray-800 rounded-md">
+              <img src="./assets/icons/home.svg" class="fas fa-home mr-3 h-5 w-5" alt=""> Home
+            </div>
+            <div
+              class="sidebar-link flex text-white items-center  text-base font-medium font-['Montserrat']  py-2 px-[10px] h-10  rounded-md">
+              <img src="./assets/icons/categories.svg" class="fas fa-home mr-3 h-5 w-5" alt=""> Categories
+            </div>
+            <div
+              class="sidebar-link items-center text-base font-medium font-['Montserrat']  py-2 px-[10px] h-10  rounded-md">
+              <img src="./assets/icons/message.svg" class="fas fa-home mr-3 h-5 w-5" alt=""> Message
+            </div>
+            <div
+              class="sidebar-link items-center text-base font-medium font-['Montserrat']  py-2 px-[10px] h-10  rounded-md">
+              <img src="./assets/icons/recent.svg" class="fas fa-home mr-3 h-5 w-5" alt=""> Recently Played
+            </div>
+            <div style="margin-bottom: 20px;"
+              class="sidebar-link items-center  text-base font-medium font-['Montserrat']  py-2 px-[10px] h-10  rounded-md">
+              <img src="./assets/icons/admin.svg" class="fas fa-home mr-3 h-5 w-5" alt=""> Account
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Main Content -->
+      <main class="flex-1 px-4 pb-6 dark:bg-gray-900 max-w-[1500px] mx-auto ">
+
+        <!-- Navigation -->
+        <nav class="sticky top-0 w-full bg-white/80 dark:bg-gray-900 backdrop-blur-md z-50 shadow-sm">
+          <div class=" flex justify-between items-center px-0  py-5">
+            <div class="flex items-center relative flex-col flex-1 md:flex-row space-x-4">
+              <button id="mobile-menu-button" class="md:hidden text-right text-2xl">
+                <i class="fas fa-bars"></i>
+              </button>
+              <nav class="navbar mt-6 lg:mt-0">
+                <div class="background"></div>
+                <div class="navbar-links">
+                  <a class="nav-item " href="index.html" onclick="delayedRedirect(event, 'index.html')" data-index="0">Games</a>
+                  <a class="nav-item active" href="app.html" data-index="1">Apps</a>
+                  <a class="nav-item" data-index="2">P2E</a>
+                  <a class="nav-item" href="#contact_form" data-index="3">Contact</a>
+                </div>
+              </nav>
+            </div>
+            <div class="flex items-center space-x-4">
+              <button id="theme-toggle"
+                class="text-2xl text-gray-600 dark:text-gray-300 p-2 rounded-full hover:bg-gray-200 dark:hover:bg-dark-card transition-all">
+                <i class="fas fa-moon dark:hidden"></i>
+                <i class="fas fa-sun hidden dark:block"></i>
+              </button>
+              <div class="hidden md:flex space-x-6">
+                <button
+                  class="  px-[24px] py-2  hover:bg-cyan-600 hover:text-white transition-all dark:text-white text-lg font-medium font-['Montserrat'] rounded-[5px] border-2 border-cyan-300"><a
+                    href="login.html">Sign In</a></button>
+                <button
+                  class=" text-slate-950 text-lg font-medium font-['Montserrat']  px-[24px] py-2 bg-cyan-300 rounded-[5px] hover:bg-cyan-600 hover:text-white transition-all">Sign
+                  Up</button>
+              </div>
+            </div>
+          </div>
+        </nav>
+       
+        <!-- ---sticicky column  -->
+        <div id="nav" class="container app_page">
+          <div class="left-column">
+
+            <div class="blog_detail">
+                <h1>Comprehensive Guide to Creating Solana Tokens Using Smithii's Platform.
+                </h1>
+
+                <div class="blog_detail_banner">
+                    <img src="./assets/images/detail-blog.png" alt="">
+                </div>
+
+                <div class="blog_content">
+                    <h2>Table Of Content</h2>
+                  <ul>
+                    <li>Introduction</li>
+                    <li> Why Create a Token on Solana?</li>
+                    <li> What is Smithii's Solana Token Creator?</li>
+                    <li> Key Features of Smithii's Platform</li>
+                    <li> Step-by-Step Process to Create a Token</li>
+                    <li> Best Practices and Tips</li>
+                    <li> Common Mistakes to Avoid</li>
+                    <li> Use Cases for Solana Tokens</li>
+                    <li> FAQs</li>
+                    <li> Real-World Examples</li>
+                    <li> Promoting Your Token</li>
+                    <li> Conclusion</li>
+                  </ul>
+                </div> 
+                 <div class="blog_content">
+                    <h2>Introduction</h2>
+                  <p>Creating a token on the blockchain was once a task limited to developers, requiring knowledge of smart contracts and command-line interfaces. Today, platforms like Smithii's Solana Token Creator have made this process user-friendly, allowing anyone to launch their own token in minutes without writing a single line of code. In this guide, we'll walk you through the complete process of creating a Solana token using Smithii's tool, including its benefits, features, and real-world applications.</p>
+                </div>   
+                <div class="blog_content">
+                    <h2>Why Create a Token on Solana?</h2>
+                  <p> Creating a token on the blockchain was once a task limited to developers, requiring knowledge of smart contracts and command-line interfaces. Today, platforms like Smithii's Solana Token Creator have made this process user-friendly, allowing anyone to launch their own token in minutes without writing a single line of code. In this guide, we'll walk you through the complete process of creating a Solana token using Smithii's tool, including its benefits, features, and real-world applications.</p>
+                </div>      
+                 <div class="blog_content">
+                    <h2>What is Smithii's Solana Token Creator?</h2>
+                  <p> Creating a token on the blockchain was once a task limited to developers, requiring knowledge of smart contracts and command-line interfaces. Today, platforms like Smithii's Solana Token Creator have made this process user-friendly, allowing anyone to launch their own token in minutes without writing a single line of code. In this guide, we'll walk you through the complete process of creating a Solana token using Smithii's tool, including its benefits, features, and real-world applications.</p>
+                </div>    
+                 <div class="blog_content">
+                    <h2>Key Features of Smithii's Platform
+                    </h2>
+                    <div class="feature_table-container">
+                        <table class="feature_table">
+                            <thead class="feature_table-header">
+                                <tr>
+                                    <th>Features</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="feature_table-row">
+                                    <td class="feature_table-cell feature_table-feature" data-label="Features">No-Code Interface</td>
+                                    <td class="feature_table-cell feature_table-description" data-label="Description">Easy-to-use UI requiring no programming knowledge.</td>
+                                </tr>
+                                <tr class="feature_table-row">
+                                    <td class="feature_table-cell feature_table-feature" data-label="Features">Token Customization</td>
+                                    <td class="feature_table-cell feature_table-description" data-label="Description">Set name, symbol, decimals, supply, description, and more.</td>
+                                </tr>
+                                <tr class="feature_table-row">
+                                    <td class="feature_table-cell feature_table-feature" data-label="Features">Logo Upload</td>
+                                    <td class="feature_table-cell feature_table-description" data-label="Description">Add a PNG image to represent your token in wallets.</td>
+                                </tr>
+                                <tr class="feature_table-row">
+                                    <td class="feature_table-cell feature_table-feature" data-label="Features">Revoke Mint Authority</td>
+                                    <td class="feature_table-cell feature_table-description" data-label="Description">Prevents any further minting after creation.</td>
+                                </tr>
+                                <tr class="feature_table-row">
+                                    <td class="feature_table-cell feature_table-feature" data-label="Features">Revoke Freeze Authority</td>
+                                    <td class="feature_table-cell feature_table-description" data-label="Description">Disables the ability to freeze token accounts.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="blog_detail">
+                <div class="blog_detail_banner">
+                    <img src="./assets/images/blog-detail-img-2.png" alt="">
+                </div>
+                <div class="blog_content">
+                    <h2>Step-by-Step Process to Create a Token
+                    </h2>
+                    <p>Creating a token on the blockchain was once a task limited to developers, requiring knowledge of smart contracts and command-line interfaces. Today, platforms like Smithii's Solana Token Creator have made this process user-friendly, allowing anyone to launch their own token in minutes without writing a single line of code. In this guide, we'll walk you through the complete process of creating a Solana token using Smithii's tool, including its benefits, features, and real-world applications.
+                    </p>
+                </div>
+
+                <div class="blog_content">
+                    <h2>Best Practices and Tips
+
+                    </h2>
+                    <p> Creating a token on the blockchain was once a task limited to developers, requiring knowledge of smart contracts and command-line interfaces. Today, platforms like Smithii's Solana Token Creator have made this process user-friendly, allowing anyone to launch their own token in minutes without writing a single line of code. In this guide, we'll walk you through the complete process of creating a Solana token using Smithii's tool, including its benefits, features, and real-world applications.
+                    </p>
+                </div>
+                <div class="blog_content">
+                    <h2>Common Mistakes to Avoid
+                    </h2>
+                    <p> Creating a token on the blockchain was once a task limited to developers, requiring knowledge of smart contracts and command-line interfaces. Today, platforms like Smithii's Solana Token Creator have made this process user-friendly, allowing anyone to launch their own token in minutes without writing a single line of code. In this guide, we'll walk you through the complete process of creating a Solana token using Smithii's tool, including its benefits, features, and real-world applications.
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="blog_detail">
+                <div class="blog_detail_banner">
+                    <img src="./assets/images/blog-detail-img-3.png" alt="">
+                </div>
+                <div class="blog_content">
+                    <h2>Step-by-Step Process to Create a Token
+                    </h2>
+                    <p>Creating a token on the blockchain was once a task limited to developers, requiring knowledge of smart contracts and command-line interfaces. Today, platforms like Smithii's Solana Token Creator have made this process user-friendly, allowing anyone to launch their own token in minutes without writing a single line of code. In this guide, we'll walk you through the complete process of creating a Solana token using Smithii's tool, including its benefits, features, and real-world applications.
+                    </p>
+                </div>
+
+        
+
+            </div>
+
+
+
+
+
+
+
+
+          </div>
+
+          <div class="right-column">
+            <div class="sticky-container">
+              <div class="section">
+                <!-- <h2 class="recommendation-title">You may also like</h2> -->
+                <!-- <div class="recommendation-card">
+                <div class="recommendation-img">
+                  <img src="./assets/images/pancake-swap.png" alt="Pancakeswap">
+                </div>
+                <div class="recommendation-info">
+                  <h3>Pancake Swap</h3>
+                  <div class="recommendation-type">DEFI • WALLET</div>
+                  <div class="recommendation-rating">
+                    <div class="stars">★★★★☆</div>
+                  </div>
+                  <button class="explore-small">Explore</button>
+                </div>
+              </div> -->
+                <div class="app-card aave-card col_end gradient_bg lg:py-4 lg:pt-4  lg:px-4">
+                  <h2 class="gradient-text side_heading">Similar to Sidus Heroes </h2>
+                  <h3 class="side_sub_heading">You might also like</h3>
+                  <div class="logo-container aave-bg rounded-[5px] overflow-hidden">
+                    <img src="./assets/images/new-side-img.png" alt="Aave" class="">
+                  </div>
+                  <div class="card-content">
+                    <h2 class="card-title">Saros</h2>
+                    <div class="card-subtitle">DEFI · WALLET</div>
+                    <!-- <p class="card-description">Open-source non-custodial liquidity protocol.</p> -->
+                    <div class="ratings-container">
+                      <div class="star-rating">
+                        <span>★</span>
+                        <span>★</span>
+                        <span>★</span>
+                        <span>★</span>
+                        <span style="color: #64748b;">★</span>
+                      </div>
+                      <span class="ratings-text"> <strong>4.8 Ratings</strong> | 369 Reviews</span>
+                    </div>
+                    <div class="badges-container">
+                      <div class="badge">
+                        <span class="badge-icon"><img src="./assets/icons/verified.svg" alt=""></span>
+                        <span>Verified App</span>
+                      </div>
+                      <div class="badge">
+                        <span class="badge-icon"><img src="./assets/icons/trusted.svg" alt=""></span>
+                        <span>Trusted App</span>
+                      </div>
+                    </div>
+                    <div class="card-footer">
+                      <button class="explore-btn">Explore</button>
+                      <div class="types-container">
+                        <div class="info-tags">
+                          <div class="info-tag">
+                            <span class="info-tag-label">APP TYPE</span>
+                            <span class="info-tag-value">Free</span>
+                          </div>
+                          <div class="info-tag">
+                            <span class="info-tag-label">OS TYPE</span>
+                            <span class="info-tag-value">Web</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- ==== featured side game ====  -->
+              <div class="section gradient_bg">
+                <div class="side-featured-game">
+                 <img src="./assets/images//aav-side-img.png" alt="">
+                </div>
+               </div>
+ 
+
+              <div class="section gradient_bg">
+                <div class="side_tokens-container">
+                  <div class="side_tokens-header">
+                    <h2 class="side_tokens-title gradient-text">Tokens/Coins Supported</h2>
+                    <p class="side_tokens-subtitle">You might also like</p>
+                  </div>
+                  <div class="side_tokens-grid">
+                    <div class="side_tokens-card">
+                      <div class="side_tokens-icon side_tokens-icon-btc"></div>
+                    </div>
+                    <div class="side_tokens-card">
+                      <div class="side_tokens-icon side_tokens-icon-eth"></div>
+                    </div>
+                    <div class="side_tokens-card">
+                      <div class="side_tokens-icon side_tokens-icon-tron"></div>
+                    </div>
+                    <div class="side_tokens-card">
+                      <div class="side_tokens-icon side_tokens-icon-tron"></div>
+                    </div>
+                    <div class="side_tokens-card">
+                      <div class="side_tokens-icon side_tokens-icon-eth"></div>
+                    </div>
+                    <div class="side_tokens-card">
+                      <div class="side_tokens-icon side_tokens-icon-btc"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+        
+              <div class="section">
+
+                <div class="also_view_cards_div gradient_bg">
+                <h2 class="also-view-title gradient-text">People Also View</h2>
+
+                  <h3>You might also like</h3>
+                  <div class="also-view-card">
+                    <div class="also-view_wrapper">
+                      <div class="also-view-img">
+                        <img src="./assets/images/farm-side-img.png" alt="Farm Clicker">
+                      </div>
+                      <div class="also-view-info">
+                        <h3>Farm Clicker</h3>
+                        <div class="also-view-type">DEFI • WALLET</div>
+                        <div class="star-rating">
+                          <span>★</span>
+                          <span>★</span>
+                          <span>★</span>
+                          <span>★</span>
+                          <span style="color: #64748b;">★</span>
+                        </div>
+                      </div>
+                    </div>
+                    <button class="explore-btn">Explore</button>
+                  </div>
+
+                  <div class="also-view-card">
+                    <div class="also-view_wrapper">
+                      <div class="also-view-img">
+                        <img src="./assets/images/saros-side.png" alt="Farm Clicker">
+                      </div>
+                      <div class="also-view-info">
+                        <h3>Saros</h3>
+                        <div class="also-view-type">DEFI • WALLET</div>
+                        <div class="star-rating">
+                          <span>★</span>
+                          <span>★</span>
+                          <span>★</span>
+                          <span>★</span>
+                          <span style="color: #64748b;">★</span>
+                        </div>
+                      </div>
+                    </div>
+                    <button class="explore-btn">Explore</button>
+                  </div>
+
+
+                  <div class="also-view-card">
+                    <div class="also-view_wrapper">
+                      <div class="also-view-img">
+                        <img src="./assets/images/henio.png" alt="Farm Clicker">
+                      </div>
+                      <div class="also-view-info">
+                        <h3>Henio</h3>
+                        <div class="also-view-type">DEFI • WALLET</div>
+                        <div class="star-rating">
+                          <span>★</span>
+                          <span>★</span>
+                          <span>★</span>
+                          <span>★</span>
+                          <span style="color: #64748b;">★</span>
+                        </div>
+                      </div>
+                    </div>
+                    <button class="explore-btn">Explore</button>
+                  </div>
+
+
+                  <div class="also-view-card">
+                    <div class="also-view_wrapper">
+                      <div class="also-view-img">
+                        <img src="./assets/images/one-inch-side.png" alt="Farm Clicker">
+                      </div>
+                      <div class="also-view-info">
+                        <h3>1 Inch</h3>
+                        <div class="also-view-type">DEFI • WALLET</div>
+                        <div class="star-rating">
+                          <span>★</span>
+                          <span>★</span>
+                          <span>★</span>
+                          <span>★</span>
+                          <span style="color: #64748b;">★</span>
+                        </div>
+                      </div>
+                    </div>
+                    <button class="explore-btn">Explore</button>
+                  </div>
+
+                  <div class="also-view-card">
+                    <div class="also-view_wrapper">
+                      <div class="also-view-img">
+                        <img src="./assets/images/aave-side.png" alt="Farm Clicker">
+                      </div>
+                      <div class="also-view-info">
+                        <h3>Aave</h3>
+                        <div class="also-view-type">DEFI • WALLET</div>
+                        <div class="star-rating">
+                          <span>★</span>
+                          <span>★</span>
+                          <span>★</span>
+                          <span>★</span>
+                          <span style="color: #64748b;">★</span>
+                        </div>
+                      </div>
+                    </div>
+                    <button class="explore-btn">Explore</button>
+                  </div>
+
+                  
+
+             
+
+
+
+                </div>
+
+                
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+      </main>
+    </div>
+    <footer class="footer">
+      <div class="social-banner">
+        <div class="social-text">Get Connected with us on Social Media</div>
+        <div class="social-icons">
+          <div class="social-icon">
+            <i>in</i>
+          </div>
+          <div class="social-icon">
+            <i>f</i>
+          </div>
+          <div class="social-icon">
+            <i>t</i>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-content">
+        <div class="footer-column company_info">
+          <h3 class="footer-heading">Company Name</h3>
+          <p class="company-info">
+            Dextr Apps is a Web3 app store featuring web-based dApps and games where users can explore, play, and engage
+            with blockchain-powered applications directly from your browser.
+          </p>
+        </div>
+
+        <div class="footer-column other_info">
+          <h3 class="footer-heading">Pages</h3>
+          <ul class="footer-links">
+            <li class="footer-link">Games</li>
+            <li class="footer-link">Apps</li>
+            <li class="footer-link">Play 2 Earn</li>
+            <li class="footer-link">Contact</li>
+          </ul>
+        </div>
+
+        <div class="footer-column other_info">
+          <h3 class="footer-heading">Pages</h3>
+          <ul class="footer-links">
+            <li class="footer-link">Games</li>
+            <li class="footer-link">Apps</li>
+            <li class="footer-link">Play 2 Earn</li>
+            <li class="footer-link">Contact</li>
+          </ul>
+        </div>
+
+        <div class="footer-column other_info">
+          <h3 class="footer-heading">Pages</h3>
+          <ul class="footer-links">
+            <li class="footer-link">Games</li>
+            <li class="footer-link">Apps</li>
+            <li class="footer-link">Play 2 Earn</li>
+            <li class="footer-link">Contact</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="copyright-bar">
+        All Rights Reserved 2025-26 © Copyright - Dextr Apps |
+        <a href="#" class="copyright-link">Privacy</a> |
+        <a href="#" class="copyright-link">Disclaimer</a> |
+        <a href="#" class="copyright-link">Terms & Conditions</a>
+      </div>
+    </footer>
+  </div>
+
+  <script defer src="js/app.js"></script>
+
+
+
+</body>
+
+</html>
